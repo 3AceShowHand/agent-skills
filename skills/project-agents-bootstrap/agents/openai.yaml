@@ -1,0 +1,5 @@
+interface:
+  display_name: "Project AGENTS Bootstrap"
+  short_description: "Create concise repo-level AGENTS.md files"
+  brand_color: "#2563EB"
+  default_prompt: "Use $project-agents-bootstrap to create a concise repo-level AGENTS.md for this repository."

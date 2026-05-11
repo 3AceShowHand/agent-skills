@@ -1,0 +1,5 @@
+interface:
+  display_name: "Distributed Systems Reliability"
+  short_description: "Review distributed reliability risks"
+  brand_color: "#9333EA"
+  default_prompt: "Use $distributed-systems-reliability to review this distributed-system change for invariants, progress, failure recovery, and operability."

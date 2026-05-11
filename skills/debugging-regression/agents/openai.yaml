@@ -1,0 +1,5 @@
+interface:
+  display_name: "Debugging Regression"
+  short_description: "Reproduce, isolate, and fix regressions"
+  brand_color: "#DC2626"
+  default_prompt: "Use $debugging-regression to reproduce this failure, isolate root cause, and propose a minimal fix."

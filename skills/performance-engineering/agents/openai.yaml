@@ -1,0 +1,5 @@
+interface:
+  display_name: "Performance Engineering"
+  short_description: "Measure and improve performance safely"
+  brand_color: "#059669"
+  default_prompt: "Use $performance-engineering to measure this performance issue and guide a safe optimization."
