@@ -1,0 +1,5 @@
+interface:
+  display_name: "Refactor Safety"
+  short_description: "Preserve behavior during refactors"
+  brand_color: "#4F46E5"
+  default_prompt: "Use $refactor-safety to plan this refactor so behavior stays unchanged and the diff remains reviewable."

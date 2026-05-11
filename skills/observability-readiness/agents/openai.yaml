@@ -1,0 +1,5 @@
+interface:
+  display_name: "Observability Readiness"
+  short_description: "Check logs, metrics, traces, and alerts"
+  brand_color: "#0284C7"
+  default_prompt: "Use $observability-readiness to check whether this production change is diagnosable and operable."

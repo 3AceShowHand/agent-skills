@@ -1,0 +1,5 @@
+interface:
+  display_name: "Migration Safety"
+  short_description: "Plan safe data and schema migrations"
+  brand_color: "#B45309"
+  default_prompt: "Use $migration-safety to plan this state migration with compatibility, validation, rollout, and rollback."

@@ -16,7 +16,10 @@ Personal source repository for reusable agent Skills.
 - `api-compatibility-review`: review compatibility impact before API, config, protocol, storage, metrics, or error-semantic changes.
 - `distributed-systems-reliability`: review distributed invariants, progress, failure recovery, control loops, and operability under partial failure.
 - `performance-engineering`: guide measured performance optimization and regression analysis.
+- `migration-safety`: plan safe schema, data, storage-format, and irreversible state changes.
 - `debugging-regression`: reproduce, isolate, fix, and regression-test bugs.
+- `refactor-safety`: preserve behavior during refactors, staged rewrites, moves, and interface simplification.
+- `observability-readiness`: ensure production changes have useful logs, metrics, traces, alerts, dashboards, and runbook signals.
 - `engineering-review`: perform deep code and design review focused on correctness, complexity, interfaces, tests, and failure modes.
 
 ## Install
