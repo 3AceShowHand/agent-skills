@@ -2,11 +2,14 @@
 
 Personal source repository for reusable agent Skills.
 
+## Purpose
+
+This repository is the source of truth for my custom Skills. Skills are maintained here, then installed into supported agents with the `skills` CLI.
+
 ## Management Rules
 
-- This repository is the source of truth for all custom Skills.
 - Skills must be installable through the `skills` CLI.
-- Skill bodies should be agent-agnostic; avoid agent-specific assumptions unless the Skill explicitly targets one agent.
+- Skill bodies should be agent-agnostic unless a Skill explicitly targets one agent.
 - Use `agents/` metadata only as optional UI integration. Core behavior belongs in `SKILL.md` and `references/`.
 - Keep `SKILL.md` concise. Put longer checklists, templates, and examples in `references/`.
 
@@ -24,8 +27,8 @@ Personal source repository for reusable agent Skills.
 
 ## Install
 
-- List installable Skills: `skills add /Users/edison/workspace/agent-skills --list`
-- Install one Skill globally for Codex: `skills add /Users/edison/workspace/agent-skills -g -a codex --skill performance-engineering`
-- Install one Skill globally for another agent: replace `codex` with the target agent name, such as `claude-code` or `cursor`.
-- Install all Skills globally for one agent: `skills add /Users/edison/workspace/agent-skills -g -a codex --skill '*'`
-- Install all Skills globally for all supported agents: `skills add /Users/edison/workspace/agent-skills -g --agent '*' --skill '*'`
+- List installable Skills: `skills add https://github.com/3AceShowHand/agent-skills.git --list`
+- Install one Skill globally for one agent: `skills add https://github.com/3AceShowHand/agent-skills.git -g -a <agent> --skill performance-engineering`
+- Install all Skills globally for one agent: `skills add https://github.com/3AceShowHand/agent-skills.git -g -a <agent> --skill '*'`
+- Install all Skills globally for all supported agents: `skills add https://github.com/3AceShowHand/agent-skills.git -g --agent '*' --skill '*'`
+- Example for Codex: `skills add https://github.com/3AceShowHand/agent-skills.git -g -a codex --skill '*'`
