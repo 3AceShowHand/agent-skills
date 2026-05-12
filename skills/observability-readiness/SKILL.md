@@ -1,6 +1,6 @@
 ---
 name: observability-readiness
-description: Use when a change affects production behavior, failure modes, recovery, performance, operator workflows, external dependencies, background work, retries, queues, migrations, or user-visible reliability. Checks logs, metrics, traces, alerts, dashboards, runbook signals, cardinality, privacy, and diagnostic coverage.
+description: Use when a change affects production behavior, failure modes, recovery, performance, operator workflows, external dependencies, background work, retries, queues, migrations, or user-visible reliability. Prefer this Skill directly when diagnosability and operator readiness are the dominant review risks; otherwise `engineering-review` may triage first and route here. Checks logs, metrics, traces, alerts, dashboards, runbook signals, cardinality, privacy, and diagnostic coverage.
 ---
 
 # Observability Readiness
@@ -15,6 +15,7 @@ description: Use when a change affects production behavior, failure modes, recov
 
 - The change is documentation-only, cosmetic, or purely local with no operational impact.
 - Existing project observability rules already define the needed signals and the task only follows them mechanically.
+- The right first step is a broad engineering review because the dominant risk area is still unclear.
 
 ## Workflow
 

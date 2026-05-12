@@ -1,6 +1,6 @@
 ---
 name: migration-safety
-description: Use when a change affects persisted data, schemas, storage formats, metadata, checkpoints, indexes, config formats, irreversible operations, backfills, cleanups, repairs, rollout order, rollback safety, or mixed-version state transitions. Guides compatibility, idempotency, validation, monitoring, blast-radius control, and rollback or containment planning.
+description: Use when a change affects persisted data, schemas, storage formats, metadata, checkpoints, indexes, config formats, irreversible operations, backfills, cleanups, repairs, rollout order, rollback safety, or mixed-version state transitions. Prefer this Skill directly when migration or durable-state risk is the dominant review area; otherwise `engineering-review` may triage first and route here. Guides compatibility, idempotency, validation, monitoring, blast-radius control, and rollback or containment planning.
 ---
 
 # Migration Safety
@@ -17,6 +17,7 @@ description: Use when a change affects persisted data, schemas, storage formats,
 - The change is stateless and does not affect persisted or externally durable state.
 - The task only changes in-memory behavior and has no rollout, rollback, or compatibility impact.
 - A more specific project migration guide fully defines the process.
+- The right first step is a broad engineering review because the dominant risk area is still unclear.
 
 ## Workflow
 

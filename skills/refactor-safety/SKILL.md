@@ -1,6 +1,6 @@
 ---
 name: refactor-safety
-description: Use for behavior-preserving refactors, staged rewrites, module moves, symbol renames, dependency inversion, interface simplification, duplicate-code removal, or implementation replacement where external behavior should remain unchanged. Guards against scope creep, behavior drift, compatibility breaks, and unreviewable diffs.
+description: Use for behavior-preserving refactors, staged rewrites, module moves, symbol renames, dependency inversion, interface simplification, duplicate-code removal, or implementation replacement where external behavior should remain unchanged. Prefer this Skill directly when refactor safety is the dominant review risk; otherwise `engineering-review` may triage first and route here. Guards against scope creep, behavior drift, compatibility breaks, and unreviewable diffs.
 ---
 
 # Refactor Safety
@@ -16,6 +16,7 @@ description: Use for behavior-preserving refactors, staged rewrites, module move
 - The task is a small local bug fix with no structural change.
 - The user explicitly asks for a behavior change and not a behavior-preserving refactor.
 - A broader design review is needed before deciding whether to refactor.
+- The right first step is a broad engineering review because the dominant risk area is still unclear.
 
 ## Workflow
 

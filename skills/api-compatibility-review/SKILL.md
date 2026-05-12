@@ -1,6 +1,6 @@
 ---
 name: api-compatibility-review
-description: Use before changing public APIs, exported functions, CLI behavior, config names, protocol fields, storage formats, schemas, metrics, logs consumed by tooling, or error semantics. Reviews callers, compatibility impact, migration paths, tests, versioning, defaults, deprecation, mixed-version behavior, and rollback risk.
+description: Use before changing public APIs, exported functions, CLI behavior, config names, protocol fields, storage formats, schemas, metrics, logs consumed by tooling, or error semantics. Prefer this Skill directly when compatibility is the dominant review risk; otherwise `engineering-review` may triage first and route here. Reviews callers, compatibility impact, migration paths, tests, versioning, defaults, deprecation, mixed-version behavior, and rollback risk.
 ---
 
 # API Compatibility Review
@@ -15,6 +15,7 @@ description: Use before changing public APIs, exported functions, CLI behavior, 
 
 - The change is clearly private to one function and has no external, persisted, generated, documented, or cross-version surface.
 - The task is only a local refactor and public behavior is unchanged.
+- The right first step is a broad engineering review because the dominant risk area is still unclear.
 
 ## Workflow
 

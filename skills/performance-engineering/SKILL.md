@@ -1,6 +1,6 @@
 ---
 name: performance-engineering
-description: Use for performance optimization, performance regression analysis, throughput, latency, memory, CPU, allocation, IO, concurrency contention, startup time, or benchmark work. Requires baseline measurement, hot-path identification, one-variable changes, re-measurement, correctness preservation, and clear reporting of tradeoffs and uncertainty.
+description: Use for performance optimization, performance regression analysis, throughput, latency, memory, CPU, allocation, IO, concurrency contention, startup time, or benchmark work. Prefer this Skill directly when performance is the dominant review or implementation risk; otherwise `engineering-review` may triage first and route here. Requires baseline measurement, hot-path identification, one-variable changes, re-measurement, correctness preservation, and clear reporting of tradeoffs and uncertainty.
 ---
 
 # Performance Engineering
@@ -15,6 +15,7 @@ description: Use for performance optimization, performance regression analysis, 
 
 - The task is a normal feature or bug fix and performance is not part of the request or risk.
 - The change is cosmetic, documentation-only, or unrelated to runtime behavior.
+- The right first step is a broad engineering review because the dominant risk area is still unclear.
 
 ## Workflow
 
