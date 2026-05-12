@@ -1,5 +1,5 @@
 interface:
   display_name: "Engineering Review"
-  short_description: "Deep code and design review workflow"
+  short_description: "Default engineering review with specialized routing"
   brand_color: "#0F766E"
-  default_prompt: "Use $engineering-review to review this change for correctness, complexity, interfaces, tests, and failure modes."
+  default_prompt: "Use $engineering-review as the default engineering review entry point for this change. Review correctness, complexity, interfaces, tests, and failure modes, identify the dominant risk area, and recommend specialized review skills when needed. Consider performance hygiene only if business code was modified."
