@@ -1,0 +1,5 @@
+interface:
+  display_name: "Review Self"
+  short_description: "Current-branch review against latest upstream base"
+  brand_color: "#1D4ED8"
+  default_prompt: "Use $review-self to review my current branch against the latest upstream base, include dirty changes, build a guided reading path, and report actionable findings."

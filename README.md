@@ -24,6 +24,7 @@ This repository is the source of truth for my custom Skills. Skills are maintain
 - `refactor-safety`: preserve behavior during refactors, staged rewrites, moves, and interface simplification.
 - `observability-readiness`: ensure production changes have useful logs, metrics, traces, alerts, dashboards, and runbook signals.
 - `engineering-review`: perform deep code and design review focused on correctness, complexity, interfaces, tests, and failure modes.
+- `review-self`: review the current local branch against the latest upstream base, including dirty changes.
 
 ## Install
 
