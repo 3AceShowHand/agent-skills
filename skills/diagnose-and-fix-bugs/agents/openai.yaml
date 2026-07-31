@@ -1,0 +1,5 @@
+interface:
+  display_name: "Diagnose and Fix Bugs"
+  short_description: "Build a tight loop, find root cause, and verify fixes"
+  brand_color: "#DC2626"
+  default_prompt: "Use $diagnose-and-fix-bugs to reproduce this failure, isolate the root cause, apply a minimal fix, and verify it."

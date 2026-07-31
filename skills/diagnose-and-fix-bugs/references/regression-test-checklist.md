@@ -2,10 +2,10 @@
 
 ## Test Value
 
-- The test fails before the fix or clearly covers the failing scenario.
+- The test fails before the fix and passes after it when feasible.
 - The test checks externally meaningful behavior.
 - The test is deterministic or controls timing, randomness, and concurrency.
-- The test is focused on the owning module or boundary.
+- The test uses a seam that reproduces the real bug pattern, not a shallower approximation that could pass while the original bug remains.
 
 ## Case Selection
 
@@ -25,7 +25,7 @@
 
 ## When A Test Is Not Feasible
 
-Report why, and include one of:
+Report why the real bug has no suitable test seam, and include one of:
 
 - Manual reproduction steps.
 - Failing command and output.

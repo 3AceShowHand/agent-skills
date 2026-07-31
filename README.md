@@ -20,7 +20,7 @@ This repository is the source of truth for my custom Skills. Skills are maintain
 - `distributed-systems-reliability`: review distributed invariants, progress, failure recovery, control loops, and operability under partial failure.
 - `performance-engineering`: guide measured performance optimization and regression analysis.
 - `migration-safety`: plan safe schema, data, storage-format, and irreversible state changes.
-- `debugging-regression`: reproduce, isolate, fix, and regression-test bugs.
+- `diagnose-and-fix-bugs`: build a tight feedback loop, isolate root cause, fix, and regression-test bugs.
 - `refactor-safety`: preserve behavior during refactors, staged rewrites, moves, and interface simplification.
 - `observability-readiness`: ensure production changes have useful logs, metrics, traces, alerts, dashboards, and runbook signals.
 - `engineering-review`: perform deep code and design review focused on correctness, complexity, interfaces, tests, and failure modes.
