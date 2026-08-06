@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write Great Documents"
+  short_description: "Create clear, rigorous local Markdown documents"
+  default_prompt: "Use $write-great-document to create or update a clear, rigorous local Markdown document from the available context and source material."
