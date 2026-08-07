@@ -1,6 +1,6 @@
 ---
 name: evolve-skills
-description: Use when user feedback, task outcomes, repeated rework, routing failures, or cross-agent differences suggest that an existing Skill needs improvement, or when the user asks to evolve or review Skill behavior. Analyze evidence, attribute the cause, generalize a reusable principle, and stop for user confirmation before editing. After confirmation, make the smallest source change, add regression evidence, validate behavior in fresh contexts, and follow the authorized release workflow. Do not use for creating unrelated new Skills, ordinary task failures without evidence of a Skill defect, mechanical maintenance, or one-off project preferences.
+description: Use when a user rejects, corrects, or asks to improve an agent result, process, or behavior; when task outcomes, repeated rework, routing failures, or cross-agent differences suggest that an existing Skill needs improvement; or when the user asks to evolve or review Skill behavior. Analyze evidence, identify the responsible Skills, attribute the cause, generalize a reusable principle, and stop for user confirmation before editing. After confirmation, make the smallest source change, add regression evidence, validate behavior in fresh contexts, and follow the authorized release workflow. Do not use for creating unrelated new Skills, ordinary task failures without evidence of a Skill defect, mechanical maintenance, or one-off project preferences.
 ---
 
 # Evolve Skills
@@ -11,7 +11,7 @@ Improve existing Skills from observed outcomes without turning isolated incident
 
 Rank evidence by reliability:
 
-1. Explicit user correction or confirmed expectation.
+1. Explicit user rejection, dissatisfaction, correction, or requested improvement.
 2. Objective task, test, or production outcome.
 3. Repeated rework, routing failure, or cross-agent difference.
 4. Agent self-assessment.
@@ -20,7 +20,7 @@ Do not evolve a Skill from self-assessment alone. Reduce retained evidence to th
 
 ## Attribute the Cause
 
-Classify the failure before proposing a change:
+Identify the Skills that governed the criticized result, process, or behavior. Then classify the failure before proposing a change:
 
 - Routing defect: the correct Skill did not trigger, or an unrelated Skill did.
 - Skill defect: a missing, ambiguous, incorrect, or conflicting instruction caused the behavior.
