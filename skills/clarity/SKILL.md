@@ -15,7 +15,9 @@ Apply this Skill to all original user-facing narrative content. Another Skill ma
 - Give each sentence one job: state a result, evidence, reason, risk, action, or necessary question.
 - State the useful claim directly. Use contrast only when the distinction changes the reader's understanding; delete setup clauses when the conclusion stands alone.
 - Keep one main idea per sentence and one topic per paragraph.
-- Use concrete subjects and precise verbs. Prefer specific claims over abstract labels, promotional wording, inflated significance, and generic optimism.
+- Use concrete subjects and precise verbs. Name the real actor when responsibility, decisions, or actions matter.
+- Give an inanimate subject only actions it can perform. Do not use vague agency to hide an unknown actor or causal relationship.
+- Prefer specific claims over abstract labels, promotional wording, inflated significance, and generic optimism.
 - Name the source of a claim when attribution matters. Do not hide uncertainty behind vague phrases such as "some people say."
 - Distinguish verified facts, inferences, recommendations, assumptions, and unknowns.
 - Match the explanation depth to the reader's decision. Trust the reader and include necessary context once.
@@ -30,7 +32,8 @@ Apply this Skill to all original user-facing narrative content. Another Skill ma
 3. Merge repeated claims and keep their strongest supporting evidence.
 4. For a "not X, but Y" sentence, first write Y as a standalone claim. Keep X only when the reader must reject X to understand or act on Y correctly.
 5. Replace other indirect setup with the useful statement. Do not preserve the source sentence's rhetorical frame merely because it is grammatical.
-6. Check that shortening preserved conditions, uncertainty, warnings, and technical meaning.
+6. Check that each action or decision has the correct subject. Name a known actor when it matters; do not invent one when it is unknown or irrelevant.
+7. Check that shortening preserved conditions, uncertainty, warnings, and technical meaning.
 
 ## Handle Common Outputs
 
@@ -53,4 +56,5 @@ Apply this Skill to all original user-facing narrative content. Another Skill ma
 
 - Replace `理想结果不是“像真人聊天”，而是每句话都有作用。` with `每句话都应提供有效信息。`
 - Replace "You are right. I will first inspect the files and then make the change" with the result of the inspection or the change being made.
+- Replace "The decision emerged from the review" with the known actor and action. If the actor is unknown or irrelevant, use an accurate passive construction instead of inventing one.
 - Replace a repeated summary with the missing evidence, risk, or next action; delete it when none exists.
