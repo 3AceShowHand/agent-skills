@@ -25,6 +25,7 @@ This repository is the source of truth for my custom Skills. Skills are maintain
 - `observability-readiness`: ensure production changes have useful logs, metrics, traces, alerts, dashboards, and runbook signals.
 - `engineering-review`: perform deep code and design review focused on correctness, complexity, interfaces, tests, and failure modes.
 - `review-self`: review the current local branch against the latest upstream base, including dirty changes.
+- `write-great-document`: create and maintain clear local Markdown documents, including complete and readable active task lists.
 
 ## Install
 

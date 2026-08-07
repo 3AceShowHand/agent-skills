@@ -118,9 +118,11 @@ Reuse stable source identifiers when available. Otherwise, use a heading, paragr
 
 ### Task List
 
-- Keep it concise. Use the filename and level-one heading to convey purpose; omit metadata, `Background`, and the last-updated date.
-- List only tasks after the level-one heading. Start each task with `- [ ]`.
-- When clarification is necessary, use a regular indented list to describe the issue and recommendation briefly. Do not preserve fixed fields that have no meaningful content.
-- Assume tasks run sequentially. Determine the order from actual dependencies rather than inferring dependencies from list position. Without violating dependencies, order tasks from lower risk to higher risk.
-- Within the same risk level, use vertical slices: complete one end-to-end unit across the full stack before expanding to other units.
-- When the user reports a task complete, remove it from the document. Delete the task-list file after the final task is complete.
+Read [Task List Rules](./references/task-lists.md) before creating or updating a task list.
+
+- Keep the document focused on unfinished work. Use the filename and level-one heading to convey purpose; omit metadata, `Background`, and the last-updated date.
+- Give the complete known plan in the first useful draft. Sequential execution controls order, not how much of the plan the user can see.
+- Use headings when they make priorities, sources, or topics easier to scan. Start each actionable task with `- [ ]` and put supporting detail in an indented list.
+- Use lists for multi-sentence explanations. Use a table only when fields are stable, cells are short, and horizontal comparison is materially faster.
+- Put one blank line between same-level items when an item contains nested content or spans multiple lines. A compact list of single-line items may remain tight.
+- Remove completed tasks instead of keeping a work log. Delete the task-list file after the final task is complete.
