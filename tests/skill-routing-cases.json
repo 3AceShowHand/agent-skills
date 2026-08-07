@@ -5,7 +5,7 @@
       "prompt": "Implement a new approval workflow across the API, service, and persistence layers, including tests.",
       "expected_primary": "feature-development",
       "expected_supporting": ["codebase-navigation", "software-design"],
-      "must_not_trigger": ["diagnose-and-fix-bugs", "refactor", "code-review"]
+      "must_not_trigger": ["diagnose-and-fix-bugs", "refactor", "code-review", "evolve-skills"]
     },
     {
       "id": "feature-new-export",
@@ -68,7 +68,7 @@
       "prompt": "Review my current branch, including committed, staged, unstaged, and untracked changes.",
       "expected_primary": "code-review",
       "expected_supporting": ["codebase-navigation"],
-      "must_not_trigger": ["feature-development", "refactor", "diagnose-and-fix-bugs"]
+      "must_not_trigger": ["feature-development", "refactor", "diagnose-and-fix-bugs", "evolve-skills"]
     },
     {
       "id": "review-remote-pr",
@@ -305,7 +305,7 @@
       "prompt": "Create a local Markdown design document from this discussion and the relevant code.",
       "expected_primary": "write-great-document",
       "expected_supporting": ["codebase-navigation", "clarity"],
-      "must_not_trigger": ["software-design", "feature-development", "project-agents-bootstrap"]
+      "must_not_trigger": ["software-design", "feature-development", "project-agents-bootstrap", "evolve-skills"]
     },
     {
       "id": "document-task-list",
@@ -356,6 +356,30 @@
       "expected_supporting": [],
       "must_not_trigger": ["write-great-document", "feature-development", "code-review", "project-agents-bootstrap"],
       "expected_behavior": "Name a known responsible actor when it matters and remove vague agency without inventing facts."
+    },
+    {
+      "id": "evolve-user-correction",
+      "prompt": "The clarity Skill keeps preserving unnecessary 'not X but Y' framing after I asked for direct prose. Analyze the cause and generalize the lesson, then wait for my confirmation before editing anything.",
+      "expected_primary": "evolve-skills",
+      "expected_supporting": ["clarity"],
+      "must_not_trigger": ["write-great-document", "feature-development", "code-review"],
+      "expected_behavior": "Report the evidence, attribution, generalized principle, scope, and a counterexample, then stop without editing."
+    },
+    {
+      "id": "evolve-routing-failure",
+      "prompt": "Code review failed to trigger for two remote pull-request reviews. Determine whether its trigger is defective, generalize a correction, and stop for confirmation before changing the Skill.",
+      "expected_primary": "evolve-skills",
+      "expected_supporting": ["code-review"],
+      "must_not_trigger": ["feature-development", "refactor", "write-great-document"],
+      "expected_behavior": "Distinguish a routing defect from agent noncompliance and pause after presenting the proposed trigger principle."
+    },
+    {
+      "id": "evolve-repeated-rework",
+      "prompt": "Feature work has repeatedly exposed incomplete plans one decision at a time. Assess whether feature-development caused the rework, derive a reusable rule, and do not modify files until I confirm it.",
+      "expected_primary": "evolve-skills",
+      "expected_supporting": ["feature-development"],
+      "must_not_trigger": ["diagnose-and-fix-bugs", "refactor", "write-great-document"],
+      "expected_behavior": "Use repeated rework as evidence, separate Skill defects from execution defects, and enforce the confirmation gate."
     },
     {
       "id": "no-skill-exact-literal",

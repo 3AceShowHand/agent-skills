@@ -1,0 +1,4 @@
+interface:
+  display_name: "Evolve Skills"
+  short_description: "Turn proven Skill feedback into safe improvements"
+  default_prompt: "Use $evolve-skills to analyze this Skill feedback, generalize the lesson, and stop for confirmation before editing."

@@ -30,6 +30,7 @@ This repository is the source of truth for my custom Skills. Skills are maintain
 - `performance-engineering`: guide measured performance optimization and regression analysis.
 - `observability-readiness`: ensure production changes have useful logs, metrics, traces, alerts, dashboards, and runbook signals.
 - `clarity`: keep all original user-facing narrative content direct, precise, concise, and useful.
+- `evolve-skills`: turn confirmed Skill feedback into minimal, regression-tested improvements with a required user confirmation gate.
 - `write-great-document`: organize and maintain local Markdown documents, including complete and readable active task lists.
 
 ## Install

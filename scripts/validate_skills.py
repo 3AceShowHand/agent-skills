@@ -34,6 +34,7 @@ REQUIRED_CASE_IDS = {
     "document-task-list",
     "compat-application-upgrade",
     "design-module-boundary",
+    "evolve-user-correction",
     "no-skill-known-file-typo",
 }
 
@@ -201,9 +202,9 @@ def validate_routing_cases(skill_names: set[str], errors: list[str]) -> None:
             seen_ids.add(case_id)
         if not isinstance(prompt, str) or not prompt.strip():
             fail(errors, f"{location}: missing prompt")
-        if isinstance(case_id, str) and case_id.startswith("quality-"):
+        if isinstance(case_id, str) and case_id.startswith(("quality-", "evolve-")):
             if not isinstance(expected_behavior, str) or not expected_behavior.strip():
-                fail(errors, f"{location}: quality case requires expected_behavior")
+                fail(errors, f"{location}: behavior case requires expected_behavior")
         if primary is not None and primary not in skill_names:
             fail(errors, f"{location}: unknown primary Skill {primary!r}")
         if not isinstance(supporting, list) or not isinstance(excluded, list):
