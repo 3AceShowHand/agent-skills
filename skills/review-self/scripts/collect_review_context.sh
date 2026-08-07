@@ -20,6 +20,8 @@ Default base resolution:
   2. Otherwise fetch upstream main, then use upstream/main if available.
 
 The script does not checkout, merge, reset, or edit files.
+When fetching is enabled, it stops if no candidate base can be refreshed. Use
+--no-fetch only when reviewing against existing local refs is intentional.
 EOF
 }
 
@@ -76,9 +78,18 @@ ref_exists() {
 fetch_branch() {
   local remote="$1"
   local branch="$2"
-  if [[ "$FETCH" -eq 1 ]] && remote_exists "$remote"; then
-    git fetch --prune "$remote" "$branch" >/dev/null
+  if [[ "$FETCH" -eq 0 ]]; then
+    return 0
   fi
+  if ! remote_exists "$remote"; then
+    echo "ERROR: remote not found: $remote" >&2
+    return 1
+  fi
+  if git fetch --prune "$remote" "$branch" >/dev/null; then
+    return 0
+  fi
+  echo "ERROR: failed to refresh $remote/$branch. Use --no-fetch only to accept existing local refs." >&2
+  return 1
 }
 
 resolve_base() {
@@ -86,7 +97,9 @@ resolve_base() {
     if [[ "$BASE_INPUT" == */* ]]; then
       local remote="${BASE_INPUT%%/*}"
       local branch="${BASE_INPUT#*/}"
-      fetch_branch "$remote" "$branch" || true
+      if ! fetch_branch "$remote" "$branch"; then
+        return 1
+      fi
       if ref_exists "$BASE_INPUT"; then
         printf '%s\n' "$BASE_INPUT"
         return 0
@@ -97,10 +110,13 @@ resolve_base() {
         return 0
       fi
       if remote_exists upstream; then
-        fetch_branch upstream "$BASE_INPUT" || true
-        if ref_exists "upstream/$BASE_INPUT"; then
-          printf '%s\n' "upstream/$BASE_INPUT"
-          return 0
+        if fetch_branch upstream "$BASE_INPUT"; then
+          if ref_exists "upstream/$BASE_INPUT"; then
+            printf '%s\n' "upstream/$BASE_INPUT"
+            return 0
+          fi
+        elif [[ "$FETCH" -eq 1 ]]; then
+          return 1
         fi
       fi
       if ref_exists "$BASE_INPUT"; then
@@ -117,19 +133,17 @@ resolve_base() {
     return 1
   fi
 
-  fetch_branch upstream master || true
-  if ref_exists upstream/master; then
+  if fetch_branch upstream master && ref_exists upstream/master; then
     printf '%s\n' "upstream/master"
     return 0
   fi
 
-  fetch_branch upstream main || true
-  if ref_exists upstream/main; then
+  if fetch_branch upstream main && ref_exists upstream/main; then
     printf '%s\n' "upstream/main"
     return 0
   fi
 
-  echo "ERROR: neither upstream/master nor upstream/main exists" >&2
+  echo "ERROR: could not refresh upstream/master or upstream/main. Use --no-fetch only to accept existing local refs." >&2
   return 1
 }
 
@@ -152,7 +166,13 @@ printf 'base_ref: %s\n' "$BASE_REF"
 printf 'base_sha: %s\n' "$BASE_SHA"
 printf 'commit_range: %s..HEAD\n' "$BASE_REF"
 printf 'diff_range: %s...HEAD\n' "$BASE_REF"
-printf 'fetch_performed: %s\n' "$([[ "$FETCH" -eq 1 ]] && printf yes || printf no)"
+if [[ "$FETCH" -eq 0 ]]; then
+  printf 'fetch_status: skipped (--no-fetch)\n'
+elif [[ "$BASE_REF" == */* ]]; then
+  printf 'fetch_status: succeeded\n'
+else
+  printf 'fetch_status: not needed for local ref\n'
+fi
 
 print_section "remotes"
 git remote -v || true

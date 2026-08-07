@@ -31,10 +31,10 @@ Supported options:
 
 - Review only. Do not edit code, run formatters, commit, branch, merge, reset, or checkout.
 - Refresh the base ref unless `--no-fetch` is requested.
-- Include staged and unstaged changes in scope, not only committed changes.
+- If the refresh fails, stop instead of using a possibly stale remote-tracking ref. Use `--no-fetch` only when the user explicitly accepts local refs.
+- Include staged changes already added to the Git index and unstaged tracked worktree changes, not only committed changes.
 - Do not guess from names. Open unclear definitions and follow call chains until the behavior and invariants are understood.
 - If the repository has its own agent instructions, read the relevant files before judging tests, errors, logs, generated code, compatibility, or validation.
-- Begin the final review report with exactly: `[skill: review-self] activated`
 
 ## Workflow
 
@@ -83,29 +83,28 @@ Supported options:
 
 Produce Markdown with:
 
-1. `[skill: review-self] activated`
-2. Base and diff info:
+1. Base and diff info:
    - base ref and base SHA
    - head SHA
    - commit range
    - whether dirty changes were included
-3. What changed: high-level summary.
-4. Guided reading path:
+2. What changed: high-level summary.
+3. Guided reading path:
    - start locations with files/functions
    - why each location matters
    - the top three places to read if time is short
-5. Design alignment, only when `--doc` was provided:
+4. Design alignment, only when `--doc` was provided:
    - matches
    - mismatches
    - missing implementation or tests
    - design-doc issues
-6. Review findings grouped by category:
-   - `**[Severity: Blocker|High|Med|Low|Nit]** file:line or symbol`
+5. Review findings grouped by category:
+   - `**[Severity: Critical|High|Medium|Low]** file:line or symbol`
    - issue
    - why it matters
    - concrete fix direction
-7. Questions for the author, only when still unresolved after deep reading.
-8. Risk assessment and suggested next steps.
+6. Questions for the author, only when still unresolved after deep reading.
+7. Risk assessment and suggested next steps.
 
 If no actionable findings are found, say that clearly and state what remains unverified.
 
