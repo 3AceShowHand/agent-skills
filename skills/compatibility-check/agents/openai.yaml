@@ -1,0 +1,5 @@
+interface:
+  display_name: "Compatibility Check"
+  short_description: "Prevent application failures during upgrades"
+  brand_color: "#7C3AED"
+  default_prompt: "Use $compatibility-check to verify that this change will not break the application or its critical workflows during or after upgrade."

@@ -1,0 +1,353 @@
+{
+  "cases": [
+    {
+      "id": "feature-cross-module-workflow",
+      "prompt": "Implement a new approval workflow across the API, service, and persistence layers, including tests.",
+      "expected_primary": "feature-development",
+      "expected_supporting": ["codebase-navigation", "software-design"],
+      "must_not_trigger": ["diagnose-and-fix-bugs", "refactor", "code-review"]
+    },
+    {
+      "id": "feature-new-export",
+      "prompt": "Add a user-visible export capability with validation, error handling, and integration coverage.",
+      "expected_primary": "feature-development",
+      "expected_supporting": [],
+      "must_not_trigger": ["diagnose-and-fix-bugs", "performance-engineering", "distributed-systems-reliability", "write-great-document"]
+    },
+    {
+      "id": "feature-multi-step-enhancement",
+      "prompt": "Enhance the scheduler with a new policy that touches configuration, selection logic, and tests.",
+      "expected_primary": "feature-development",
+      "expected_supporting": ["codebase-navigation"],
+      "must_not_trigger": ["refactor", "code-review", "project-agents-bootstrap"]
+    },
+    {
+      "id": "navigate-request-flow",
+      "prompt": "Trace an incoming request from the HTTP handler through validation, storage, and the response path.",
+      "expected_primary": "codebase-navigation",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "software-design", "code-review"]
+    },
+    {
+      "id": "navigate-symbol-impact",
+      "prompt": "Find every caller of the ownership resolver and explain what would be affected if its return type changed.",
+      "expected_primary": "codebase-navigation",
+      "expected_supporting": [],
+      "must_not_trigger": ["refactor", "compatibility-check", "performance-engineering"]
+    },
+    {
+      "id": "navigate-state-owner",
+      "prompt": "Identify which module owns job state, where it is mutated, and how cancellation reaches it.",
+      "expected_primary": "codebase-navigation",
+      "expected_supporting": [],
+      "must_not_trigger": ["software-design", "observability-readiness", "diagnose-and-fix-bugs"]
+    },
+    {
+      "id": "design-module-boundary",
+      "prompt": "Design the boundary and public interface for a module that owns task retries and hides scheduling state from callers.",
+      "expected_primary": "software-design",
+      "expected_supporting": ["codebase-navigation"],
+      "must_not_trigger": ["feature-development", "code-review", "write-great-document"]
+    },
+    {
+      "id": "design-shared-abstraction",
+      "prompt": "Decide whether three consumers should share an abstraction and define its ownership and lifecycle without implementing it.",
+      "expected_primary": "software-design",
+      "expected_supporting": [],
+      "must_not_trigger": ["refactor", "feature-development", "project-agents-bootstrap"]
+    },
+    {
+      "id": "design-concurrent-resource",
+      "prompt": "Design a background worker interface with bounded queues, cancellation, cleanup, and explicit failure semantics.",
+      "expected_primary": "software-design",
+      "expected_supporting": ["distributed-systems-reliability"],
+      "must_not_trigger": ["diagnose-and-fix-bugs", "code-review", "migration-safety"]
+    },
+    {
+      "id": "review-local-worktree",
+      "prompt": "Review my current branch, including committed, staged, unstaged, and untracked changes.",
+      "expected_primary": "code-review",
+      "expected_supporting": ["codebase-navigation"],
+      "must_not_trigger": ["feature-development", "refactor", "diagnose-and-fix-bugs"]
+    },
+    {
+      "id": "review-remote-pr",
+      "prompt": "Perform a deep read-only review of pull request 418 against its merge base and report actionable findings.",
+      "expected_primary": "code-review",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "write-great-document", "project-agents-bootstrap"]
+    },
+    {
+      "id": "review-module-design",
+      "prompt": "Review this design proposal for module boundaries, ownership, failure behavior, and testability.",
+      "expected_primary": "code-review",
+      "expected_supporting": ["software-design"],
+      "must_not_trigger": ["feature-development", "refactor", "diagnose-and-fix-bugs"]
+    },
+    {
+      "id": "quality-unrelated-cleanup",
+      "prompt": "Review a feature diff that also reformats and cleans up unrelated packages.",
+      "expected_primary": "code-review",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "refactor", "write-great-document"],
+      "expected_behavior": "Reject unrelated cleanup and require the diff to stay within the requested behavior."
+    },
+    {
+      "id": "quality-single-use-abstraction",
+      "prompt": "Review a small change that adds a pass-through interface and factory used by only one caller.",
+      "expected_primary": "code-review",
+      "expected_supporting": ["software-design"],
+      "must_not_trigger": ["feature-development", "refactor", "project-agents-bootstrap"],
+      "expected_behavior": "Reject indirection that does not hide knowledge or reduce cognitive load."
+    },
+    {
+      "id": "quality-speculative-configuration",
+      "prompt": "Review a feature that adds configuration switches for hypothetical future variants with no current consumer.",
+      "expected_primary": "code-review",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "compatibility-check", "migration-safety"],
+      "expected_behavior": "Reject speculative configuration that does not serve a current requirement."
+    },
+    {
+      "id": "quality-unmeasured-optimization",
+      "prompt": "Review a normal feature diff that adds a complex cache and claims it will be faster without measurements.",
+      "expected_primary": "code-review",
+      "expected_supporting": ["performance-engineering"],
+      "must_not_trigger": ["feature-development", "diagnose-and-fix-bugs", "refactor"],
+      "expected_behavior": "Reject the performance claim and added complexity until measurement establishes a need and benefit."
+    },
+    {
+      "id": "quality-unnecessary-dependency",
+      "prompt": "Review a change that adds a new package for functionality already provided clearly by the standard library.",
+      "expected_primary": "code-review",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "software-design", "performance-engineering"],
+      "expected_behavior": "Reject the dependency because its cost is not justified by the current requirement."
+    },
+    {
+      "id": "quality-low-signal-tests",
+      "prompt": "Review tests that duplicate implementation branches, assert private call order, and protect no observable behavior.",
+      "expected_primary": "code-review",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "diagnose-and-fix-bugs", "write-great-document"],
+      "expected_behavior": "Flag tests whose maintenance cost is not matched by behavioral or failure-path coverage."
+    },
+    {
+      "id": "bug-crash-regression",
+      "prompt": "Reproduce and fix the crash introduced by the last release, then add a regression test.",
+      "expected_primary": "diagnose-and-fix-bugs",
+      "expected_supporting": ["codebase-navigation"],
+      "must_not_trigger": ["feature-development", "refactor", "code-review"]
+    },
+    {
+      "id": "bug-flaky-test",
+      "prompt": "Find the root cause of this intermittent test failure and fix it without masking the flake.",
+      "expected_primary": "diagnose-and-fix-bugs",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "performance-engineering", "write-great-document"]
+    },
+    {
+      "id": "bug-data-corruption",
+      "prompt": "Diagnose why valid input sometimes produces corrupt output and leave focused regression coverage.",
+      "expected_primary": "diagnose-and-fix-bugs",
+      "expected_supporting": [],
+      "must_not_trigger": ["refactor", "code-review", "project-agents-bootstrap"]
+    },
+    {
+      "id": "refactor-module-split",
+      "prompt": "Split this large module into two cohesive modules while preserving all observable behavior.",
+      "expected_primary": "refactor",
+      "expected_supporting": ["software-design", "codebase-navigation"],
+      "must_not_trigger": ["feature-development", "diagnose-and-fix-bugs", "compatibility-check"]
+    },
+    {
+      "id": "refactor-symbol-move",
+      "prompt": "Move these symbols to the ownership package without changing APIs or runtime behavior.",
+      "expected_primary": "refactor",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "code-review", "migration-safety"]
+    },
+    {
+      "id": "refactor-dependency-inversion",
+      "prompt": "Invert this dependency in small stages and prove behavior remains equivalent.",
+      "expected_primary": "refactor",
+      "expected_supporting": ["software-design"],
+      "must_not_trigger": ["feature-development", "diagnose-and-fix-bugs", "observability-readiness"]
+    },
+    {
+      "id": "compat-application-upgrade",
+      "prompt": "Ensure users can upgrade from the previous release without existing workloads failing.",
+      "expected_primary": "compatibility-check",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "migration-safety", "code-review"]
+    },
+    {
+      "id": "compat-config-rename",
+      "prompt": "Change this configuration name while keeping old configuration files accepted during upgrade.",
+      "expected_primary": "compatibility-check",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "refactor", "performance-engineering"]
+    },
+    {
+      "id": "compat-mixed-version",
+      "prompt": "Assess whether old and new binaries can coexist during a rolling upgrade without breaking critical workflows.",
+      "expected_primary": "compatibility-check",
+      "expected_supporting": ["distributed-systems-reliability"],
+      "must_not_trigger": ["feature-development", "write-great-document", "project-agents-bootstrap"]
+    },
+    {
+      "id": "migration-schema-backfill",
+      "prompt": "Plan and implement a schema change with a backfill, validation, staged rollout, and rollback strategy.",
+      "expected_primary": "migration-safety",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "refactor", "performance-engineering"]
+    },
+    {
+      "id": "migration-storage-format",
+      "prompt": "Change the persisted storage format while allowing safe reads during the transition.",
+      "expected_primary": "migration-safety",
+      "expected_supporting": ["compatibility-check"],
+      "must_not_trigger": ["feature-development", "code-review", "write-great-document"]
+    },
+    {
+      "id": "migration-checkpoint",
+      "prompt": "Migrate existing checkpoints without losing progress or making rollback unsafe.",
+      "expected_primary": "migration-safety",
+      "expected_supporting": ["distributed-systems-reliability"],
+      "must_not_trigger": ["refactor", "project-agents-bootstrap", "performance-engineering"]
+    },
+    {
+      "id": "performance-latency",
+      "prompt": "Measure and reduce the p99 latency regression on this request path without changing behavior.",
+      "expected_primary": "performance-engineering",
+      "expected_supporting": ["codebase-navigation"],
+      "must_not_trigger": ["feature-development", "diagnose-and-fix-bugs", "refactor"]
+    },
+    {
+      "id": "performance-memory",
+      "prompt": "Profile why memory usage doubled and optimize the measured allocation hot path.",
+      "expected_primary": "performance-engineering",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "observability-readiness", "write-great-document"]
+    },
+    {
+      "id": "performance-contention",
+      "prompt": "Benchmark lock contention, change one bottleneck, and re-measure throughput.",
+      "expected_primary": "performance-engineering",
+      "expected_supporting": [],
+      "must_not_trigger": ["refactor", "code-review", "migration-safety"]
+    },
+    {
+      "id": "distributed-ordering",
+      "prompt": "Verify ordering and idempotency when messages are retried and delivered more than once.",
+      "expected_primary": "distributed-systems-reliability",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "performance-engineering", "write-great-document"]
+    },
+    {
+      "id": "distributed-failover",
+      "prompt": "Design and validate progress and ownership transfer when the current leader fails mid-operation.",
+      "expected_primary": "distributed-systems-reliability",
+      "expected_supporting": ["software-design"],
+      "must_not_trigger": ["diagnose-and-fix-bugs", "refactor", "project-agents-bootstrap"]
+    },
+    {
+      "id": "distributed-retry-loop",
+      "prompt": "Review this retry control loop for backpressure, retry storms, bounded progress, and recovery.",
+      "expected_primary": "distributed-systems-reliability",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "migration-safety", "code-review"]
+    },
+    {
+      "id": "observability-background-job",
+      "prompt": "Define the logs, metrics, alerts, and runbook signals needed to operate this background job safely.",
+      "expected_primary": "observability-readiness",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "performance-engineering", "write-great-document"]
+    },
+    {
+      "id": "observability-recovery",
+      "prompt": "Check whether operators can detect, diagnose, and confirm recovery from this new failure mode.",
+      "expected_primary": "observability-readiness",
+      "expected_supporting": [],
+      "must_not_trigger": ["diagnose-and-fix-bugs", "code-review", "project-agents-bootstrap"]
+    },
+    {
+      "id": "observability-signal-quality",
+      "prompt": "Review the signal names, cardinality, thresholds, and ownership before this production change ships.",
+      "expected_primary": "observability-readiness",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "refactor", "migration-safety"]
+    },
+    {
+      "id": "agents-create",
+      "prompt": "Create a concise repository-level AGENTS.md with the real build, test, lint, and generated-file rules.",
+      "expected_primary": "project-agents-bootstrap",
+      "expected_supporting": [],
+      "must_not_trigger": ["write-great-document", "feature-development", "codebase-navigation"]
+    },
+    {
+      "id": "agents-audit",
+      "prompt": "Audit this repository AGENTS.md against the actual project commands and fix stale instructions.",
+      "expected_primary": "project-agents-bootstrap",
+      "expected_supporting": [],
+      "must_not_trigger": ["code-review", "write-great-document", "refactor"]
+    },
+    {
+      "id": "agents-standardize",
+      "prompt": "Standardize the nested AGENTS.md files without moving project-specific rules into global guidance.",
+      "expected_primary": "project-agents-bootstrap",
+      "expected_supporting": ["codebase-navigation"],
+      "must_not_trigger": ["feature-development", "software-design", "compatibility-check"]
+    },
+    {
+      "id": "document-design",
+      "prompt": "Create a local Markdown design document from this discussion and the relevant code.",
+      "expected_primary": "write-great-document",
+      "expected_supporting": ["codebase-navigation"],
+      "must_not_trigger": ["software-design", "feature-development", "project-agents-bootstrap"]
+    },
+    {
+      "id": "document-task-list",
+      "prompt": "Update the local task-list Markdown file with the complete remaining plan and remove completed items.",
+      "expected_primary": "write-great-document",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "code-review", "project-agents-bootstrap"]
+    },
+    {
+      "id": "document-requirements",
+      "prompt": "Write a clear requirements document with expected behavior, constraints, and testable acceptance criteria.",
+      "expected_primary": "write-great-document",
+      "expected_supporting": [],
+      "must_not_trigger": ["software-design", "feature-development", "refactor"]
+    },
+    {
+      "id": "no-skill-known-file-typo",
+      "prompt": "Fix the spelling mistake in the already identified comment in src/version.go.",
+      "expected_primary": null,
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "codebase-navigation", "software-design", "code-review", "diagnose-and-fix-bugs", "refactor"]
+    },
+    {
+      "id": "no-skill-chat-explanation",
+      "prompt": "Explain in chat what this three-line helper does; do not modify files.",
+      "expected_primary": null,
+      "expected_supporting": [],
+      "must_not_trigger": ["write-great-document", "code-review", "feature-development", "project-agents-bootstrap", "software-design", "distributed-systems-reliability"]
+    },
+    {
+      "id": "no-skill-exact-literal",
+      "prompt": "Find the exact string ERR_WORKER_STOPPED in this repository.",
+      "expected_primary": null,
+      "expected_supporting": [],
+      "must_not_trigger": ["codebase-navigation", "diagnose-and-fix-bugs", "code-review", "feature-development", "observability-readiness", "distributed-systems-reliability"]
+    },
+    {
+      "id": "no-self-skill-external-docs",
+      "prompt": "Look up the current configuration API for an external SDK and show a short example.",
+      "expected_primary": null,
+      "expected_supporting": [],
+      "must_not_trigger": ["codebase-navigation", "feature-development", "software-design", "write-great-document", "project-agents-bootstrap"]
+    }
+  ]
+}

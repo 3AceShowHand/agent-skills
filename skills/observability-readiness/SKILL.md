@@ -1,19 +1,21 @@
 ---
 name: observability-readiness
-description: Use when a change affects production behavior, failure modes, recovery, performance, operator workflows, external dependencies, background work, retries, queues, migrations, or user-visible reliability. Prefer this Skill directly when diagnosability and operator readiness are the dominant review risks; otherwise `engineering-review` may triage first and route here. Checks logs, metrics, traces, alerts, dashboards, runbook signals, cardinality, privacy, and diagnostic coverage.
+description: Use when the task is to design or assess production diagnosability and operator readiness through logs, metrics, traces, alerts, dashboards, runbook signals, cardinality, privacy, or diagnostic coverage. Also use when observability is a material risk for new failure modes, recovery, external dependencies, background work, retries, queues, migrations, performance, or user-visible reliability. Do not use merely because ordinary feature code runs in production.
 ---
 
 # Observability Readiness
 
 ## Use When
 
-- A change affects production behavior, user-visible reliability, recovery, performance, or operator workflows.
+- The user asks to add or assess production signals, diagnosis paths, alerts, dashboards, or runbook guidance.
+- Diagnosability or operator readiness is a material risk for a production behavior, reliability, recovery, or performance change.
 - A task introduces new failure modes, degraded modes, retries, queues, background work, migrations, external dependency calls, or long-running operations.
 - Operators need to diagnose health, progress, latency, errors, backlog, resource use, ownership, or recovery.
 
 ## Do Not Use When
 
 - The change is documentation-only, cosmetic, or purely local with no operational impact.
+- The task is ordinary feature implementation and existing project observability conventions can be followed mechanically.
 - Existing project observability rules already define the needed signals and the task only follows them mechanically.
 - The right first step is a broad engineering review because the dominant risk area is still unclear.
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Software Design"
+  short_description: "Design clear module boundaries and interfaces"
+  default_prompt: "Use $software-design to resolve the material module, interface, ownership, and failure-model decisions in this task."

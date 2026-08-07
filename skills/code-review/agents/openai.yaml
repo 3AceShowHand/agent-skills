@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Review"
+  short_description: "Review local, remote, and design changes deeply"
+  brand_color: "#0F766E"
+  default_prompt: "Use $code-review to establish the full change scope, review correctness and complexity, and report evidence-backed findings without modifying the code."

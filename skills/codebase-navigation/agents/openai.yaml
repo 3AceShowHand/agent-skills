@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codebase Navigation"
+  short_description: "Trace code structure, callers, and change impact"
+  default_prompt: "Use $codebase-navigation to trace this codebase, identify the relevant entry points and relationships, and bound the change impact."

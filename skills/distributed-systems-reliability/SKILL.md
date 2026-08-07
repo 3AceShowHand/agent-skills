@@ -1,6 +1,6 @@
 ---
 name: distributed-systems-reliability
-description: Use when a change affects distributed coordination, replication, partitioning, ownership transfer, ordering, idempotency, progress, failure recovery, retries, timeouts, backpressure, consistency guarantees, or operability under partial failure. Prefer this Skill directly when distributed-system reliability is the dominant review risk; otherwise `engineering-review` may triage first and route here. Trigger on distributed-system properties, not on project names or product categories.
+description: Use when a change affects distributed coordination, replication, partitioning, ownership transfer, ordering, idempotency, progress, failure recovery, retries, timeouts, backpressure, consistency guarantees, or operability under partial failure. Prefer this Skill directly when distributed-system reliability is the dominant review risk; otherwise `code-review` may triage first and route here. Trigger on distributed-system properties, not on project names or product categories.
 ---
 
 # Distributed Systems Reliability

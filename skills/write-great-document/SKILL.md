@@ -1,6 +1,6 @@
 ---
 name: write-great-document
-description: Create, organize, or update local Markdown documents such as requirements, designs, and task lists from discussions, existing materials, and code. Use only when the user intends to create or modify a local Markdown file. Do not use for chat-only prose or requests to create or update documents on platforms handled by dedicated skills.
+description: Create, organize, or update local Markdown documents such as requirements, designs, and task lists from discussions, existing materials, and code. Use only when the user intends to create or modify a local Markdown file. Do not use for chat-only prose, repository-level AGENTS.md work handled by project-agents-bootstrap, or documents on platforms handled by dedicated skills.
 ---
 
 # Write Great Documents

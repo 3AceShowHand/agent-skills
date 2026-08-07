@@ -1,6 +1,6 @@
 ---
 name: diagnose-and-fix-bugs
-description: Use when diagnosing or fixing bugs, flaky tests, regressions, crashes, data corruption symptoms, production incidents, unexplained behavior, or performance regressions. Builds a tight feedback loop, reproduces and minimizes the failure, tests falsifiable hypotheses, isolates root cause, applies a minimal fix, adds regression coverage, cleans up instrumentation, and reports remaining uncertainty.
+description: Use when diagnosing or fixing functional bugs, flaky tests, regressions, crashes, data corruption symptoms, production incidents, or unexplained incorrect behavior. Builds a tight feedback loop, reproduces and minimizes the failure, tests falsifiable hypotheses, isolates root cause, applies a minimal fix, adds regression coverage, cleans up instrumentation, and reports remaining uncertainty. Use performance-engineering instead when latency, throughput, memory, CPU, IO, or contention is the dominant symptom.
 ---
 
 # Diagnose and Fix Bugs
@@ -20,7 +20,7 @@ description: Use when diagnosing or fixing bugs, flaky tests, regressions, crash
 4. Collect evidence and inspect relevant code, tests, environment, versions, and recent changes.
 5. Form falsifiable hypotheses. For hard bugs, rank 3–5 and state what observation would confirm or reject each one.
 6. Test one variable at a time. Prefer debugger inspection or targeted, uniquely tagged logs; do not log everything.
-7. For performance regressions, establish a baseline and use profiling, query plans, traces, or bisection before changing code.
+7. If evidence shows that performance is the dominant problem rather than functional correctness, hand the reproduction and evidence to `performance-engineering` before changing code.
 8. Add a failing regression test at the real bug seam before the fix when feasible.
 9. Apply the smallest root-cause fix. Avoid unrelated cleanup.
 10. Re-run the original feedback loop and regression test, then broaden verification only as risk requires.
