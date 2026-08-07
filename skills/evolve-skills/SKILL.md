@@ -18,6 +18,8 @@ Rank evidence by reliability:
 
 Do not evolve a Skill from self-assessment alone. Reduce retained evidence to the smallest reproducible input, output, and correction; exclude secrets, private data, and unrelated conversation.
 
+Read `references/observations.md` when current feedback may resemble a recorded problem. Compare behavior, impact, and likely cause; do not require identical wording, tasks, or identifiers.
+
 ## Attribute the Cause
 
 Identify the Skills that governed the criticized result, process, or behavior. Then classify the failure before proposing a change:
@@ -29,6 +31,16 @@ Identify the Skills that governed the criticized result, process, or behavior. T
 - Model variance: independent runs disagree without a stable instruction gap.
 
 Advance routing and Skill defects. Investigate repeated execution defects for ambiguous or overloaded instructions. Do not modify a Skill to encode task-specific exceptions or unexplained model variance.
+
+## Maintain Observations
+
+Use `references/observations.md` for user-confirmed evidence that is not yet sufficient to justify a Skill change. Add or update an observation only after the user confirms that it should be retained.
+
+- Merge similar errors by behavior and likely cause instead of creating one record per phrasing.
+- Treat recurrence as stronger evidence, not proof of a Skill defect.
+- Reassess attribution whenever an observation is updated.
+- Apply the update and clearing rules in the reference on every write.
+- Keep observations separate from requirements and regression cases.
 
 ## Generalize the Lesson
 
@@ -51,7 +63,7 @@ Stop before editing files, adding tests, committing, pushing, or installing. Con
 
 After confirmation:
 
-1. Work in the source repository, never an installed copy or agent link.
+1. Work in the source repository, never an installed copy or agent link. This Skill collection is maintained at `https://github.com/3AceShowHand/agent-skills` and normally checked out at `~/workspace/agent-skills`.
 2. Add or update a regression case that reproduces the failure through behavioral invariants instead of an exact preferred answer.
 3. Make one minimal change for the confirmed principle. Prefer removing or tightening existing text before adding instructions.
 4. Update every affected Skill only when the confirmed scope requires it.
