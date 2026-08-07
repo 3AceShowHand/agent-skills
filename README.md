@@ -28,7 +28,8 @@ This repository is the source of truth for my custom Skills. Skills are maintain
 - `distributed-systems-reliability`: review distributed invariants, progress, failure recovery, control loops, and operability under partial failure.
 - `performance-engineering`: guide measured performance optimization and regression analysis.
 - `observability-readiness`: ensure production changes have useful logs, metrics, traces, alerts, dashboards, and runbook signals.
-- `write-great-document`: create and maintain clear local Markdown documents, including complete and readable active task lists.
+- `clarity`: keep all original user-facing narrative content direct, precise, concise, and useful.
+- `write-great-document`: organize and maintain local Markdown documents, including complete and readable active task lists.
 
 ## Install
 

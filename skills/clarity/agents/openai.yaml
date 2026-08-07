@@ -1,0 +1,4 @@
+interface:
+  display_name: "Clarity"
+  short_description: "Make user-facing communication clear and concise"
+  default_prompt: "Use $clarity to make this user-facing explanation direct, precise, and concise."

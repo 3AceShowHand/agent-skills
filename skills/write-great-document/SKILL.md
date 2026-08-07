@@ -5,34 +5,30 @@ description: Create, organize, or update local Markdown documents such as requir
 
 # Write Great Documents
 
-## Quality Standards
+## Structure Standards
 
 Check every item before presenting the first draft. Deliver the draft only when it meets all of these standards:
 
-- Write naturally in the target language, following its idioms, common usage, and professional writing conventions. Do not mechanically copy another language's syntax or word order.
-- Make the purpose immediately clear. Use clear topic sentences, lead with conclusions, and make the document's purpose apparent at a glance.
+- Make the document's purpose apparent from its title and opening.
 - Organize the document logically. Order sections for the reader and keep each paragraph focused on one topic.
 - Use prose for settled claims and causal chains. Present unresolved items as a short list regardless of their count; keep the items at the same logical level and in parallel grammatical form.
 - Make headings identify the section's actual subject and distinguish it from neighboring sections. Avoid generic workflow labels such as `Current Stage` when the section contains more specific material such as requirement inputs and open questions.
-- Choose precise language. Use accurate, consistent terminology and avoid vague, inflated, or cluttered wording.
-- Make sentence structure match the underlying relationships. Give each clause a clear subject and predicate, use verbs that the subject can logically perform, keep coordinated items semantically parallel, and split a sentence when one verb or modifier does not apply cleanly to every item. Write that stakeholders resolve questions and reach decisions, or that requirements become testable; do not write that questions "form conclusions."
-- When a source sentence compresses several relationships into one vague predicate, unpack them into separate clauses. For unlike dimensions, name each relationship—for example, what a metric counts, how it correlates with cost, and which actions create billable usage. Preserve every sourced relationship; if a relationship is unclear, mark it for confirmation instead of silently dropping it.
-- Maintain rigorous logic. Support conclusions with the document's evidence or preceding reasoning, complete each line of reasoning, avoid contradictions, and label assumptions and unknowns explicitly.
-- Be concise. Remove filler and state each piece of information only once.
+- Keep each fact, decision, assumption, unknown, and recommendation in one canonical location.
 - Follow Markdown conventions. Use correct syntax for headings, lists, code blocks, and links.
 - Meet the professional standards of the document type: current-state analysis, requirements, design, or task list.
+- Use `clarity` for sentence-level expression, narrative flow, concision, and tone.
 
 ## Writing Process
 
 Complete this process internally before presenting the first draft. Do not include the process itself in the document:
 
 1. Identify the document's purpose, audience, and deliverable format.
-2. Separate facts, decisions, assumptions, and unknowns. Do not present unknowns as conclusions.
+2. Separate facts, decisions, assumptions, unknowns, and recommendations.
 3. Select only material that supports the document's purpose.
 4. Decide the reading order and where each piece of information belongs.
 5. Keep one topic per paragraph and one canonical location for each piece of information.
 6. Read the headings alone and verify that they form an accurate, non-redundant outline of the document.
-7. Check the draft against the quality standards before delivering it.
+7. Check the document structure against this Skill and its prose against `clarity` before delivering it.
 
 ## Input
 

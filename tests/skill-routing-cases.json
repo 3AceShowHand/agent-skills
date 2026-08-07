@@ -284,7 +284,7 @@
       "prompt": "Create a concise repository-level AGENTS.md with the real build, test, lint, and generated-file rules.",
       "expected_primary": "project-agents-bootstrap",
       "expected_supporting": [],
-      "must_not_trigger": ["write-great-document", "feature-development", "codebase-navigation"]
+      "must_not_trigger": ["write-great-document", "feature-development", "codebase-navigation", "clarity"]
     },
     {
       "id": "agents-audit",
@@ -304,7 +304,7 @@
       "id": "document-design",
       "prompt": "Create a local Markdown design document from this discussion and the relevant code.",
       "expected_primary": "write-great-document",
-      "expected_supporting": ["codebase-navigation"],
+      "expected_supporting": ["codebase-navigation", "clarity"],
       "must_not_trigger": ["software-design", "feature-development", "project-agents-bootstrap"]
     },
     {
@@ -326,21 +326,35 @@
       "prompt": "Fix the spelling mistake in the already identified comment in src/version.go.",
       "expected_primary": null,
       "expected_supporting": [],
-      "must_not_trigger": ["feature-development", "codebase-navigation", "software-design", "code-review", "diagnose-and-fix-bugs", "refactor"]
+      "must_not_trigger": ["feature-development", "codebase-navigation", "software-design", "code-review", "diagnose-and-fix-bugs", "refactor", "clarity"]
     },
     {
-      "id": "no-skill-chat-explanation",
+      "id": "clarity-chat-explanation",
       "prompt": "Explain in chat what this three-line helper does; do not modify files.",
-      "expected_primary": null,
+      "expected_primary": "clarity",
       "expected_supporting": [],
       "must_not_trigger": ["write-great-document", "code-review", "feature-development", "project-agents-bootstrap", "software-design", "distributed-systems-reliability"]
+    },
+    {
+      "id": "clarity-progress-update",
+      "prompt": "Rewrite this progress update so it reports only new results, blockers, and the next action.",
+      "expected_primary": "clarity",
+      "expected_supporting": [],
+      "must_not_trigger": ["write-great-document", "feature-development", "code-review", "project-agents-bootstrap"]
+    },
+    {
+      "id": "clarity-direct-revision",
+      "prompt": "Tighten this explanation by removing filler, repeated conclusions, and unnecessary 'not X but Y' setup without changing its meaning.",
+      "expected_primary": "clarity",
+      "expected_supporting": [],
+      "must_not_trigger": ["write-great-document", "refactor", "code-review", "software-design"]
     },
     {
       "id": "no-skill-exact-literal",
       "prompt": "Find the exact string ERR_WORKER_STOPPED in this repository.",
       "expected_primary": null,
       "expected_supporting": [],
-      "must_not_trigger": ["codebase-navigation", "diagnose-and-fix-bugs", "code-review", "feature-development", "observability-readiness", "distributed-systems-reliability"]
+      "must_not_trigger": ["codebase-navigation", "diagnose-and-fix-bugs", "code-review", "feature-development", "observability-readiness", "distributed-systems-reliability", "clarity"]
     },
     {
       "id": "no-self-skill-external-docs",
