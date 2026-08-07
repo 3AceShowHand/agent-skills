@@ -15,6 +15,7 @@ Check every item before presenting the first draft. Deliver the draft only when 
 - Make headings identify the section's actual subject and distinguish it from neighboring sections. Avoid generic workflow labels such as `Current Stage` when the section contains more specific material such as requirement inputs and open questions.
 - Keep each fact, decision, assumption, unknown, and recommendation in one canonical location.
 - Follow Markdown conventions. Use correct syntax for headings, lists, code blocks, and links.
+- Across every document type, use a table only when fields are stable, cells are short, and horizontal comparison is materially faster. Align table columns in the Markdown source. Use prose or lists when cells would contain causal explanations, multiple sentences, recommendations, tradeoffs, or steps.
 - Meet the professional standards of the document type: current-state analysis, requirements, design, or task list.
 - Use `clarity` for sentence-level expression, narrative flow, concision, and tone.
 
@@ -119,6 +120,5 @@ Read [Task List Rules](./references/task-lists.md) before creating or updating a
 - Keep the document focused on unfinished work. Use the filename and level-one heading to convey purpose; omit metadata, `Background`, and the last-updated date.
 - Give the complete known plan in the first useful draft. Sequential execution controls order, not how much of the plan the user can see.
 - Use headings when they make priorities, sources, or topics easier to scan. Start each actionable task with `- [ ]` and put supporting detail in an indented list.
-- Use lists for multi-sentence explanations. Use a table only when fields are stable, cells are short, and horizontal comparison is materially faster.
 - Put one blank line between same-level items when an item contains nested content or spans multiple lines. A compact list of single-line items may remain tight.
 - Remove completed tasks instead of keeping a work log. Delete the task-list file after the final task is complete.

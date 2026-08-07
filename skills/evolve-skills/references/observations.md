@@ -65,6 +65,19 @@ On every update, merge overlapping entries, remove cleared entries, and trim evi
 
 ## Active Observations
 
+### long-form-content-forced-into-tables
+
+- Status: `escalated`
+- Affected Skills: `write-great-document`
+- First observed: 2026-08-07
+- Last observed: 2026-08-07
+- Occurrences: 1
+- Pattern: Long causal, process, or tradeoff descriptions are placed in Markdown tables even though prose or lists would impose less reading and source-maintenance burden.
+- Evidence: Three tables in a current-state document and its review used cells for processing chains, metric semantics, advantages, and limitations. The user corrected that these descriptions should not use tables and that the selection rule must govern every document type.
+- Attribution: Skill defect. `write-great-document` limited its table-selection rule to task lists, leaving current-state, requirements, design, and review documents without the same structural constraint. The correction generalizes to all local Markdown documents governed by the Skill.
+- Similarity boundary: Apply when cells contain causal explanations, multiple sentences, recommendations, tradeoffs, or steps. Do not apply to short values under stable fields when horizontal comparison is materially faster; those tables should remain and their source columns should be aligned.
+- Next review trigger: Validate the global rule against the affected documents, then clear this observation after the Skill change is released and installed.
+
 ### redundant-expression-causing-language-error
 
 - Status: `investigating`
