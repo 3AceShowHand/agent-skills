@@ -20,6 +20,11 @@ REMOVED_NAMES = {
     "review-self",
 }
 PROJECT_BOUND_TERMS = {"TiCDC", "ticdc", "changefeed"}
+REDUNDANT_PERMISSION_PATTERNS = {
+    r"\b(?:you|the agent|codex)\s+(?:can|may)\b": "default capability grant",
+    r"\b(?:is|are)\s+(?:allowed|permitted)\b": "permission statement",
+    r"\bfeel free to\b": "permission statement",
+}
 REQUIRED_CASE_IDS = {
     "feature-cross-module-workflow",
     "bug-crash-regression",
@@ -126,6 +131,12 @@ def validate_skill(skill_dir: Path, errors: list[str]) -> str:
     for markdown_file in skill_dir.rglob("*.md"):
         validate_markdown_links(markdown_file, errors)
         markdown = markdown_file.read_text(encoding="utf-8")
+        for pattern, label in REDUNDANT_PERMISSION_PATTERNS.items():
+            if re.search(pattern, markdown, re.IGNORECASE):
+                fail(
+                    errors,
+                    f"{markdown_file.relative_to(ROOT)}: {label}; state the required action or prohibition instead",
+                )
         for removed_name in REMOVED_NAMES:
             if removed_name in markdown:
                 fail(

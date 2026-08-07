@@ -56,5 +56,5 @@ Apply this Skill to all original user-facing narrative content. Another Skill ma
 
 - Replace `理想结果不是“像真人聊天”，而是每句话都有作用。` with `每句话都应提供有效信息。`
 - Replace "You are right. I will first inspect the files and then make the change" with the result of the inspection or the change being made.
-- Replace "The decision emerged from the review" with the known actor and action. If the actor is unknown or irrelevant, use an accurate passive construction instead of inventing one.
+- Replace "The decision emerged from the review" with the known actor and action when the source identifies one. Do not invent an actor.
 - Replace a repeated summary with the missing evidence, risk, or next action; delete it when none exists.

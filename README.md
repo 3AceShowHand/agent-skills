@@ -11,6 +11,7 @@ This repository is the source of truth for my custom Skills. Skills are maintain
 - Skills must be installable through the `skills` CLI.
 - Skill bodies should be agent-agnostic unless a Skill explicitly targets one agent.
 - Skill definitions, triggers, and workflows must use reusable engineering concepts. Project-specific details may appear only as examples or test fixtures; they must not define the Skill's scope or required behavior.
+- Write only instructions the agent would not reliably infer: required actions and prohibitions. Omit statements that merely grant a default capability or explain what remains allowed after a prohibition.
 - Use `agents/` metadata only as optional UI integration. Core behavior belongs in `SKILL.md` and `references/`.
 - Keep `SKILL.md` concise. Put longer checklists, templates, and examples in `references/`.
 

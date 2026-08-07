@@ -355,7 +355,7 @@
       "expected_primary": "clarity",
       "expected_supporting": [],
       "must_not_trigger": ["write-great-document", "feature-development", "code-review", "project-agents-bootstrap"],
-      "expected_behavior": "Name a known responsible actor when it matters, preserve an accurate passive construction when it does not, and remove vague agency."
+      "expected_behavior": "Name a known responsible actor when it matters and remove vague agency without inventing facts."
     },
     {
       "id": "no-skill-exact-literal",
