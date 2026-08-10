@@ -19,7 +19,8 @@ Use only the parts relevant to the task.
 ## Regression Attribution
 
 - List the material variables shared by and different between the successful and failing baselines.
-- Test the leading hypothesis against the successful baseline before pursuing supporting evidence: verify whether the suspected feature is present, enabled, and implemented differently.
+- Locate the relevant behavior in every exact executed revision. Trace semantic equivalents across renamed, moved, inline, or replaced implementations and compare effective configuration; a missing commit, file, or symbol is not evidence that the behavior is absent.
+- Test the leading hypothesis against the successful baseline before pursuing supporting evidence: verify whether the suspected behavior is present, enabled, and implemented differently.
 - Separate the resource-retention or hot-path mechanism from the workload, backlog, configuration, or code change that triggered it.
 - Do not attribute the outcome difference to a candidate shared by both baselines unless measured interaction evidence explains why its effect differs.
 - Distinguish the change that introduced a latent defect from the change that exposed it in the observed regression.

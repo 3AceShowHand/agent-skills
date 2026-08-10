@@ -8,6 +8,7 @@ description: Use when diagnosing or fixing functional bugs, flaky tests, regress
 ## Core Contract
 
 - Start with the narrowest reliable pass/fail signal that exercises the reported symptom.
+- Before proposing a code-level cause, locate the relevant implementation in the exact version that ran and trace the entry point, call path, state or data changes, and effective configuration that can produce the symptom. Use logs and metrics to test that code mechanism, not replace source inspection.
 - Scale rigor to difficulty: one strong hypothesis may be enough for an obvious bug; hard bugs need a tighter loop, minimization, and ranked hypotheses.
 - Do not make a speculative fix when the failure cannot be reproduced or supported by evidence.
 - Fix root cause with the smallest safe change and leave regression coverage or a clear reproduction note.
@@ -17,14 +18,15 @@ description: Use when diagnosing or fixing functional bugs, flaky tests, regress
 1. State observed and expected behavior.
 2. Build a feedback loop: a test, CLI command, request script, browser check, trace replay, harness, differential run, or human-guided script that can catch this exact failure.
 3. Reproduce the issue and minimize the scenario. For flaky bugs, raise and measure the reproduction rate rather than waiting for a perfect repro.
-4. Collect evidence and inspect relevant code, tests, environment, versions, and recent changes.
-5. Form falsifiable hypotheses. For hard bugs, rank 3–5 and state what observation would confirm or reject each one.
-6. Test one variable at a time. Prefer debugger inspection or targeted, uniquely tagged logs; do not log everything.
-7. If evidence shows that performance is the dominant problem rather than functional correctness, hand the reproduction and evidence to `performance-engineering` before changing code.
-8. Add a failing regression test at the real bug seam before the fix when feasible.
-9. Apply the smallest root-cause fix. Avoid unrelated cleanup.
-10. Re-run the original feedback loop and regression test, then broaden verification only as risk requires.
-11. Remove temporary instrumentation and harnesses. Record the supported root cause, remaining uncertainty, and any architectural gap that prevented good coverage.
+4. Locate the relevant code in the exact executed version. Trace from the runtime entry point through callers, callees, state or data transformations, and effective configuration to the observed behavior.
+5. Map logs, metrics, traces, inputs, tests, environment, versions, and recent changes to that code path.
+6. Form falsifiable hypotheses. For hard bugs, rank 3–5 and state what observation would confirm or reject each one.
+7. Test one variable at a time. Prefer debugger inspection or targeted, uniquely tagged logs; do not log everything.
+8. If evidence shows that performance is the dominant problem rather than functional correctness, hand the reproduction, source path, and evidence to `performance-engineering` before changing code.
+9. Add a failing regression test at the real bug seam before the fix when feasible.
+10. Apply the smallest root-cause fix. Avoid unrelated cleanup.
+11. Re-run the original feedback loop and regression test, then broaden verification only as risk requires.
+12. Remove temporary instrumentation and harnesses. Record the supported root cause, remaining uncertainty, and any architectural gap that prevented good coverage.
 
 ## Feedback Loop Standard
 

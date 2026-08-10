@@ -154,6 +154,14 @@
       "must_not_trigger": ["refactor", "code-review", "project-agents-bootstrap"]
     },
     {
+      "id": "bug-code-first-causal-analysis",
+      "prompt": "Investigate a production crash from logs and recent commits, identify the code defect, and explain the root cause.",
+      "expected_primary": "diagnose-and-fix-bugs",
+      "expected_supporting": ["codebase-navigation"],
+      "must_not_trigger": ["feature-development", "code-review", "evolve-skills"],
+      "expected_behavior": "Before naming a code-level cause, locate the relevant implementation in the exact executed version and trace the runtime entry point, call path, state or data changes, and effective configuration; then map the logs and commit history to that code path and keep unsupported causes as hypotheses."
+    },
+    {
       "id": "refactor-module-split",
       "prompt": "Split this large module into two cohesive modules while preserving all observable behavior.",
       "expected_primary": "refactor",
@@ -236,7 +244,7 @@
       "expected_primary": "performance-engineering",
       "expected_supporting": ["codebase-navigation"],
       "must_not_trigger": ["feature-development", "diagnose-and-fix-bugs", "evolve-skills"],
-      "expected_behavior": "First try to falsify the scan-window hypothesis by checking whether the feature is present, enabled, and implemented differently in the successful baseline; reject it as the branch differentiator if it is shared unchanged without interaction evidence; then verify execution provenance, separate the direct memory-retention mechanism from its trigger and introducing commit, label untested candidates as hypotheses, and propose one-variable validation."
+      "expected_behavior": "First locate and trace the relevant implementation and effective configuration in both exact executed revisions, including semantic equivalents hidden by file or symbol differences. Then try to falsify the scan-window hypothesis by checking whether the behavior is present, enabled, and materially different in the successful baseline; reject it as the branch differentiator if it is shared unchanged without interaction evidence. Treat commit messages and file presence only as navigation clues, separate the direct memory-retention mechanism from its trigger and introducing commit, label untested candidates as hypotheses, and propose one-variable validation."
     },
     {
       "id": "performance-contention",
