@@ -231,6 +231,14 @@
       "must_not_trigger": ["feature-development", "observability-readiness", "write-great-document"]
     },
     {
+      "id": "quality-performance-regression-attribution",
+      "prompt": "A release branch runs out of memory while main succeeds. Compare their logs and source, identify the root cause and the regression trigger, and assess a nearby scan-window commit that is currently suspected.",
+      "expected_primary": "performance-engineering",
+      "expected_supporting": ["codebase-navigation"],
+      "must_not_trigger": ["feature-development", "diagnose-and-fix-bugs", "evolve-skills"],
+      "expected_behavior": "First try to falsify the scan-window hypothesis by checking whether the feature is present, enabled, and implemented differently in the successful baseline; reject it as the branch differentiator if it is shared unchanged without interaction evidence; then verify execution provenance, separate the direct memory-retention mechanism from its trigger and introducing commit, label untested candidates as hypotheses, and propose one-variable validation."
+    },
+    {
       "id": "performance-contention",
       "prompt": "Benchmark lock contention, change one bottleneck, and re-measure throughput.",
       "expected_primary": "performance-engineering",

@@ -65,6 +65,22 @@ On every update, merge overlapping entries, remove cleared entries, and trim evi
 
 ## Active Observations
 
+### performance-regression-premature-causal-attribution
+
+- Status: `escalated`
+- Affected Skills: `performance-engineering`, `diagnose-and-fix-bugs`
+- First observed: 2026-08-10
+- Last observed: 2026-08-10
+- Occurrences: 1
+- Pattern: A performance regression is attributed to a nearby change before performing the basic counterfactual check against the successful baseline; comparable baselines, evidence provenance, and the causal path are examined only after the attribution is challenged.
+- Evidence:
+  - During an OOM investigation, the response attributed the regression to a scan-window change before checking whether the successful baseline contained and enabled the same implementation. That later check immediately invalidated the proposed branch regression point.
+  - The response cited an execution commit without a traceable source and initially treated the old commit that introduced the vulnerable code as the current regression trigger.
+  - The corrected analysis separated an unbounded memory-retention mechanism from branch-specific backlog and batching differences.
+- Attribution: Skill and routing defect confirmed by the user. `performance-engineering` required baseline measurement but did not make falsifying the leading hypothesis against the successful baseline an explicit first attribution step. It also did not distinguish mechanism, trigger, and introducing change. The memory-dominant investigation failed to route to that Skill at the outset.
+- Similarity boundary: Update for performance, resource, or scalability investigations that name a causal commit or feature from chronology or correlation without verifying baseline differences and provenance. Do not update when a controlled A/B, revert, bisection, or direct deterministic reproduction already isolates the change.
+- Next review trigger: Validate the new attribution rule and regression case in fresh contexts, then reassess after installation or any recurrence.
+
 ### redundant-expression-causing-language-error
 
 - Status: `investigating`

@@ -20,13 +20,15 @@ description: Use for performance optimization, performance regression analysis, 
 ## Workflow
 
 1. Define the target metric and success threshold.
-2. Establish a baseline before changing code.
-3. Identify the hot path with benchmark, profiler, trace, timing, metrics, or production evidence.
-4. State expected data size, access pattern, concurrency, and resource constraints.
-5. Change one variable at a time.
-6. Re-measure and compare with the baseline.
-7. Preserve correctness, compatibility, and debuggability.
-8. Report measurement environment, variance, tradeoffs, and remaining uncertainty.
+2. Establish comparable baselines before changing code; verify the executed versions, configuration, workload, environment, and provenance of evidence.
+3. Start regression attribution by trying to falsify the leading hypothesis: check whether the suspected feature is present, enabled, and materially different in the successful baseline. A candidate shared unchanged by both baselines cannot explain their outcome difference without additional interaction evidence.
+4. Separate the failure mechanism from its trigger and introducing change. Name a change as causal only when evidence connects the baseline difference to the measured failure path; otherwise keep it as a hypothesis.
+5. Identify the hot path with benchmark, profiler, trace, timing, metrics, or production evidence.
+6. State expected data size, access pattern, concurrency, and resource constraints.
+7. Change one variable at a time.
+8. Re-measure and compare with the baseline.
+9. Preserve correctness, compatibility, and debuggability.
+10. Report measurement environment, variance, tradeoffs, and remaining uncertainty.
 
 ## References
 
