@@ -7,7 +7,7 @@ description: Create, organize, or update local Markdown documents such as requir
 
 ## Structure Standards
 
-Check every item before presenting the first draft. Deliver the draft only when it meets all of these standards:
+Apply these standards before presenting the first draft:
 
 - Make the document's purpose apparent from its title and opening.
 - Organize the document logically. Order sections for the reader and keep each paragraph focused on one topic.
@@ -29,7 +29,47 @@ Complete this process internally before presenting the first draft. Do not inclu
 4. Decide the reading order and where each piece of information belongs.
 5. Keep one topic per paragraph and one canonical location for each piece of information.
 6. Read the headings alone and verify that they form an accurate, non-redundant outline of the document.
-7. Check the document structure against this Skill and its prose against `clarity` before delivering it.
+7. Check the document structure against this Skill and its prose against `clarity`.
+8. Apply the pre-delivery quality gate and deliver only after the document passes.
+
+## Pre-Delivery Quality Gate
+
+Score every new or updated document before delivery. Keep the score and deductions internal unless the user asks for them.
+
+Score each dimension from 0 to 10, using whole points, for a total of 100:
+
+1. **Purpose and scope:** The purpose is clear, and every section stays within the requested scope.
+2. **Source fidelity:** Facts, decisions, requirements, and recommendations are traceable and correctly classified.
+3. **Logical integrity:** Premises support conclusions; rules and sections contain no material contradiction, circular reasoning, missing condition, or conflicting boundary.
+4. **Coverage:** The document includes every in-scope input that can materially affect understanding, decisions, or execution.
+5. **Structure:** The reading order is logical, headings describe their contents, and each claim has one canonical location.
+6. **Clarity:** Sentences are direct, paragraphs stay focused, and the reader can understand the document without reconstructing its meaning.
+7. **Concision:** The document contains no repeated conclusion, duplicated background, empty transition, or detail that does not serve its purpose.
+8. **Terminology:** New or specialized terms are explained when first used and retain one meaning throughout the document.
+9. **Format:** Markdown, headings, lists, links, spacing, and tables follow the user's requirements and repository conventions. Tables contain only short, stable fields suited to horizontal comparison.
+10. **Document-type fitness:** The document works as the requested analysis, requirements, design, or task list and includes the corresponding decisions, acceptance criteria, verification, or completion conditions when applicable.
+
+Assign scores from observed defects, not intended quality:
+
+- `10`: no known defect in the dimension.
+- `8-9`: one or a few isolated defects that do not impair understanding or use.
+- `6-7`: an obvious defect requires revision.
+- `0-5`: a material defect makes the document unreliable or unsuitable for its purpose.
+
+Record each deduction internally with the affected location and defect. Do not award `10` to a dimension with a known defect.
+
+A total score cannot override a delivery blocker. Fix every blocker before delivery:
+
+- content outside the requested scope;
+- an unsupported fact, decision, or requirement presented as established;
+- an unresolved item presented as settled, or a settled item retained as unresolved work;
+- a material logical gap, contradiction, or inconsistent rule;
+- an undefined or inconsistently used core term;
+- material or repeated redundancy;
+- a table containing long-form prose, causal analysis, tradeoffs, recommendations, or procedural steps;
+- a required-format violation, broken required reference, or document type that does not match its content.
+
+Deliver only when no blocker remains, every dimension scores at least 8, and the total score is at least 90. Otherwise, revise and rescore. If missing information makes the gate unattainable, report the specific blocker and request only the necessary input instead of returning the document as complete. Evaluate an explicitly requested draft against its declared scope and maturity; draft status does not waive the gate.
 
 ## Input
 
