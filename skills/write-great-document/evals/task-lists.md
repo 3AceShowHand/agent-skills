@@ -33,9 +33,12 @@ Prompt:
 Expected:
 
 - The document is a task list grouped by the priority levels that have pending work.
-- Every review outcome starts with `- [ ]`; code, tests, and completion conditions are indented under it.
+- Every review outcome starts with `- [ ]`; code, tests, and concrete problems are indented under it when useful.
 - A `Code`, `Tests`, or similar field with multiple elements puts its label on a separate line and each element in its own child list item; a single element may remain inline.
 - Source links are repository-relative Markdown links with verified `#L<line>` anchors.
+- Link labels summarize the change intent, risk, or review question instead of merely repeating method and test names.
+- Conditions resolvable from code, tests, or authoritative sources are verified; satisfied condition text is removed and unmet conditions become evidence-backed problems.
+- Review items that remain useful as human reading entry points are retained after condition verification.
 - The completed topic-visibility item and all supporting content that serves only it are absent.
 - The document omits metadata, background, branch snapshots, narrative reading paths, and generic review-report instructions.
 
@@ -50,6 +53,30 @@ Expected:
 - The document preserves a findings-first report structure.
 - Verified findings are not converted into unchecked tasks.
 - The active-task-list template does not override the final-report request.
+
+## Verified Conditions Do Not Remove Review Entry Points
+
+Prompt:
+
+> Check every completion condition in this code review guide yourself. Remove conditions that pass, keep the review items, and preserve any failures as concrete problems.
+
+Expected:
+
+- The agent verifies conditions from code, tests, and authoritative sources instead of asking the user to decide them.
+- Satisfied completion-condition text is absent.
+- Review items remain as concise human reading entry points.
+- Each unmet condition is rewritten as a concrete problem with evidence and a precise source link.
+
+## Symbol Index Keeps Identifier Labels
+
+Prompt:
+
+> Create an API symbol index that links every exported method to its definition.
+
+Expected:
+
+- Link labels preserve the exported identifiers because direct symbol lookup is the document's purpose.
+- The review-worklist intent-label rule does not rewrite identifiers into narrative descriptions.
 
 ## Compact Single-Line Queue
 

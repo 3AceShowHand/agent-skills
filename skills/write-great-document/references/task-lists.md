@@ -34,7 +34,9 @@ Use this shape for a code review guide, checklist, plan, or queue that tracks un
 - Make every review outcome a top-level `- [ ]` task. Keep code, tests, risks, verification, and completion conditions as indented supporting details.
 - When a supporting field such as `Code` or `Tests` contains multiple elements, put the field label on its own line and list each element as a child item. A field with one element may remain inline.
 - Use repository-relative Markdown links with `#L<line>` anchors when the document renderer supports source jumps. Resolve links from the document's location and verify every target and line.
-- Keep only pending work. Remove a completed review item and all supporting content that serves only that item.
+- Make each source-link label summarize the change intent, risk, or review question at that destination. Do not merely repeat a function, type, test, or filename when a concise intent label tells the reviewer why to open it. Preserve identifier labels for symbol indexes, API inventories, and other lookup-oriented documents.
+- Treat completion conditions as agent-owned verification when the available code, tests, or authoritative sources can resolve them. Remove satisfied condition text; rewrite an unmet condition as a concrete `Problem` with evidence.
+- Keep review items that remain useful as human reading or inspection entry points after their conditions are verified. Remove the whole item only when the user marks that review topic done, removes it from scope, or no longer needs it in the guide.
 - Omit metadata, background, branch snapshots, narrative reading paths, and generic review-report instructions unless one is necessary to execute a pending task.
 - Put validation commands under the task whose completion they verify, or in one final validation task when they cover the whole worklist.
 
@@ -47,14 +49,11 @@ Template:
 
 - [ ] Review task-list document behavior.
   - Code:
-    - [Task List routing](../SKILL.md#L164)
-    - [Task List structure](./task-lists.md#L1)
+    - [Route active review guides to task lists](../SKILL.md#L164)
+    - [Structure review work by priority](./task-lists.md#L1)
   - Tests:
-    - [Task-list evals](../evals/task-lists.md#L1)
-    - [Quality-gate evals](../evals/quality-gate.md#L1)
-  - Completion conditions:
-    - Pending work is ordered by priority.
-    - Completed work is absent.
+    - [Protect review-worklist behavior](../evals/task-lists.md#L1)
+    - [Reject out-of-scope document content](../evals/quality-gate.md#L1)
 
 ## P1｜Validation
 
@@ -69,7 +68,7 @@ A completed code review report is a different artifact. Preserve its evidence-ba
 - Determine order from actual dependencies. Do not infer a dependency only from list position.
 - Without violating dependencies, order tasks from higher priority and risk to lower priority and risk.
 - Within the same risk level, prefer vertical slices that complete one end-to-end outcome before expanding.
-- Remove completed tasks immediately. Put completed work in the final response, commit, pull request, or changelog instead of the active task list.
+- Remove completed execution tasks immediately. For code review guides, retain useful review entry points and remove verified condition text as specified above.
 - Delete the task-list file after the final task is complete unless the user needs it retained as a durable record.
 - Update the document when scope, priority, risk, blockers, or pending verification changes.
 
@@ -79,4 +78,4 @@ A completed code review report is a different artifact. Preserve its evidence-ba
 - If a target does not exist yet, name the planned path without inventing a line number. Add the real line after creating it.
 - For non-code review tasks, cite a concrete file, URL, command result, or conversation decision when it helps the reader verify the task.
 - Update stale line references when touching an item.
-- State an actionable completion condition and relevant verification for each task. Do not claim a check passed until it ran.
+- State an actionable completion condition and relevant verification for each execution task. In a code review worklist, verify resolvable conditions before delivery, remove satisfied condition text, and turn unmet conditions into concrete problems. Do not claim a check passed until it ran.
