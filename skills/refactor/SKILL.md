@@ -26,8 +26,9 @@ description: Use for behavior-preserving refactors, staged rewrites, module move
 4. Add characterization tests when behavior is important and coverage is weak.
 5. Split work into small reversible steps that compile and test between meaningful boundaries.
 6. Separate mechanical moves or renames from semantic edits.
-7. Preserve public APIs unless the user explicitly requests a breaking change.
-8. Remove old paths only after callers are migrated and behavior is verified.
+7. Do not infer a public API from language visibility alone. Treat a symbol as a compatibility contract only when actual external, documented, generated, persisted, or cross-version consumers depend on it.
+8. Preserve public APIs unless the user explicitly requests a breaking change. A branch-local symbol with no independent consumer may be renamed after its repository callers are migrated.
+9. Remove old paths only after callers are migrated and behavior is verified.
 
 ## References
 
@@ -39,7 +40,7 @@ description: Use for behavior-preserving refactors, staged rewrites, module move
 
 - The preserved behavior is unclear.
 - The refactor requires broad behavior changes to succeed.
-- Public API, config, protocol, storage, metrics, or error semantics may change without explicit user approval.
+- A verified public API, config, protocol, storage, metrics, or error semantics may change without explicit user approval.
 - The diff mixes refactor, feature work, performance optimization, and cleanup in a way that cannot be reviewed safely.
 
 ## Output Rules
