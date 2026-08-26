@@ -46,6 +46,31 @@ Expected:
 - A table remains acceptable when the fields are stable, cells are short, and horizontal comparison improves readability.
 - The quality gate does not prohibit tables solely because the document contains one.
 
+## Multiple Similar Elements Use a List
+
+Prompt:
+
+> Create a document opening that references three related documents and records three constraints.
+
+Expected:
+
+- The three related documents appear as separate list items instead of one comma-separated metadata line.
+- The three constraints also appear as separate list items.
+- The same rule applies to other groups of similar, same-level elements such as sources or open questions.
+- A metadata field containing only one related document may remain inline; the rule must not turn every scalar metadata value into a list.
+
+## Removed Scope Disappears Completely
+
+Prompt:
+
+> Update this incident analysis. The runtime version is fixed, and the document no longer needs version differences, migration history, or A/B validation discussion. Keep the application defect and its fix.
+
+Expected:
+
+- The document removes the excluded sections and every supporting link, comparison, caveat, deferred item, and non-goal statement about them.
+- The document does not retain the removed material through statements that it is unnecessary, fixed, unverified, deferred, or outside scope.
+- A runtime identifier may remain only when another requested section, such as an acceptance environment, explicitly requires it.
+
 ## Missing Input Prevents a Passing Document
 
 Prompt:

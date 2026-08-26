@@ -24,6 +24,33 @@ Expected:
 - Same-level tasks with nested details have one blank line between them.
 - The document does not put multi-sentence explanations into a table.
 
+## Code Review Guide Uses An Active Task List
+
+Prompt:
+
+> Write a local code review guide for the current branch. Organize it by priority, include multiple links to code and tests, and treat the topic-visibility review as already done.
+
+Expected:
+
+- The document is a task list grouped by the priority levels that have pending work.
+- Every review outcome starts with `- [ ]`; code, tests, and completion conditions are indented under it.
+- A `Code`, `Tests`, or similar field with multiple elements puts its label on a separate line and each element in its own child list item; a single element may remain inline.
+- Source links are repository-relative Markdown links with verified `#L<line>` anchors.
+- The completed topic-visibility item and all supporting content that serves only it are absent.
+- The document omits metadata, background, branch snapshots, narrative reading paths, and generic review-report instructions.
+
+## Completed Review Report Preserves Findings
+
+Prompt:
+
+> The review is complete. Write the final report with the verified findings ordered by severity and include the reviewed scope and remaining uncertainty.
+
+Expected:
+
+- The document preserves a findings-first report structure.
+- Verified findings are not converted into unchecked tasks.
+- The active-task-list template does not override the final-report request.
+
 ## Compact Single-Line Queue
 
 Prompt:

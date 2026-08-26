@@ -14,7 +14,9 @@ Apply these standards before presenting the first draft:
 - Use prose for settled claims and causal chains. Present unresolved items as a short list regardless of their count; keep the items at the same logical level and in parallel grammatical form.
 - Make headings identify the section's actual subject and distinguish it from neighboring sections. Avoid generic workflow labels such as `Current Stage` when the section contains more specific material such as requirement inputs and open questions.
 - Keep each fact, decision, assumption, unknown, and recommendation in one canonical location.
+- When the user removes a topic from scope, delete its sections, links, comparisons, caveats, deferred-work notes, and exclusion statements. Do not preserve the removed topic by explaining that it is unnecessary, unverified, fixed, deferred, or outside the current scope. Retain only facts that still serve another explicitly requested part of the document.
 - Follow Markdown conventions. Use correct syntax for headings, lists, code blocks, and links.
+- Present multiple similar, same-level elements as a list instead of joining them inline with commas, slashes, or conjunctions. This includes metadata fields: keep a single value inline, but when fields such as `Related documents`, `Related links`, `Sources`, or `Constraints` contain multiple values, put the label on its own line and list each value as a separate bullet.
 - Across every document type, use a table only when fields are stable, cells are short, and horizontal comparison is materially faster. Align table columns in the Markdown source. Use prose or lists when cells would contain causal explanations, multiple sentences, recommendations, tradeoffs, or steps.
 - Meet the professional standards of the document type: current-state analysis, requirements, design, or task list.
 - Use `clarity` for sentence-level expression, narrative flow, concision, and tone.
@@ -61,6 +63,7 @@ Record each deduction internally with the affected location and defect. Do not a
 A total score cannot override a delivery blocker. Fix every blocker before delivery:
 
 - content outside the requested scope;
+- a user-removed topic retained as an exclusion, non-goal, caveat, comparison, deferred item, or related link;
 - an unsupported fact, decision, or requirement presented as established;
 - an unresolved item presented as settled, or a settled item retained as unresolved work;
 - a material logical gap, contradiction, or inconsistent rule;
@@ -94,7 +97,10 @@ Last updated: YYYY-MM-DD
 Status: (when useful)
 Scope: (when useful)
 Audience: (when useful)
-Related documents: (when useful)
+Related documents:
+
+- (Document A title and path or URL)
+- (Document B title and path or URL)
 
 ## Background
 
@@ -104,6 +110,7 @@ Related documents: (when useful)
 ```
 
 - Place metadata between the title and `Background`. Always include `Last updated`; add `Status`, `Scope`, `Audience`, `Related documents`, and similar fields only when useful. Do not leave empty fields.
+- Keep one-value metadata fields inline. For multi-value metadata, keep the field label above a bullet list as shown in the template.
 - Update the `Last updated` date whenever the document changes. Do not maintain a change summary.
 - Use `Background` to explain why the document exists and what problem it addresses. Do not repeat the metadata.
 - Treat metadata as the canonical location for status, scope, audience, and similar facts. Repeat one in the body only when the body explains a consequence or detail that the metadata cannot express.
@@ -157,6 +164,7 @@ Reuse stable source identifiers when available. Otherwise, use a heading, paragr
 
 Read [Task List Rules](./references/task-lists.md) before creating or updating a task list.
 
+- Treat a review guide, checklist, plan, or queue that drives unfinished review work as a task list. For code review worklists, follow the priority-based template in the reference. Preserve a completed review report as an evidence-backed findings report.
 - Keep the document focused on unfinished work. Use the filename and level-one heading to convey purpose; omit metadata, `Background`, and the last-updated date.
 - Give the complete known plan in the first useful draft. Sequential execution controls order, not how much of the plan the user can see.
 - Use headings when they make priorities, sources, or topics easier to scan. Start each actionable task with `- [ ]` and put supporting detail in an indented list.

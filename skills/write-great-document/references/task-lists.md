@@ -26,27 +26,48 @@ Use these rules for todo documents, review queues, migration plans, and implemen
 - Use a table only when all fields are stable, cells are short, and readers need repeated horizontal comparison.
 - Convert a table to a list when cells contain causal explanations, multiple sentences, recommendations, or step-by-step instructions.
 
-Example:
+## Code Review Worklists
+
+Use this shape for a code review guide, checklist, plan, or queue that tracks unfinished review work:
+
+- Group tasks by actual priority. Put correctness and resource safety before tests, scope, and maintainability. Omit empty priority groups.
+- Make every review outcome a top-level `- [ ]` task. Keep code, tests, risks, verification, and completion conditions as indented supporting details.
+- When a supporting field such as `Code` or `Tests` contains multiple elements, put the field label on its own line and list each element as a child item. A field with one element may remain inline.
+- Use repository-relative Markdown links with `#L<line>` anchors when the document renderer supports source jumps. Resolve links from the document's location and verify every target and line.
+- Keep only pending work. Remove a completed review item and all supporting content that serves only that item.
+- Omit metadata, background, branch snapshots, narrative reading paths, and generic review-report instructions unless one is necessary to execute a pending task.
+- Put validation commands under the task whose completion they verify, or in one final validation task when they cover the whole worklist.
+
+Template:
 
 ```md
-# Skill review tasks
+# Change review tasks
 
-## P0｜Global behavior
+## P0｜Correctness and resource safety
 
-- [ ] Review the global instruction entry point.
-  - Source: `/path/to/AGENTS.md:1`.
-  - Finding: It loads several task-specific workflows on every request.
-  - Recommendation: Keep a minimal entry point and move workflows into Skills.
+- [ ] Review task-list document behavior.
+  - Code:
+    - [Task List routing](../SKILL.md#L164)
+    - [Task List structure](./task-lists.md#L1)
+  - Tests:
+    - [Task-list evals](../evals/task-lists.md#L1)
+    - [Quality-gate evals](../evals/quality-gate.md#L1)
+  - Completion conditions:
+    - Pending work is ordered by priority.
+    - Completed work is absent.
 
-- [ ] Review the always-on coding plugin.
-  - Source: `/path/to/plugin/SKILL.md:1`.
-  - Risk: Its trigger covers every coding task.
+## P1｜Validation
+
+- [ ] Run focused validation.
+  - Verification: `uv run --with pyyaml python scripts/validate_skills.py`.
 ```
+
+A completed code review report is a different artifact. Preserve its evidence-backed findings and severity order instead of converting resolved findings into unchecked tasks.
 
 ## Ordering And Maintenance
 
 - Determine order from actual dependencies. Do not infer a dependency only from list position.
-- Without violating dependencies, order tasks from lower risk to higher risk.
+- Without violating dependencies, order tasks from higher priority and risk to lower priority and risk.
 - Within the same risk level, prefer vertical slices that complete one end-to-end outcome before expanding.
 - Remove completed tasks immediately. Put completed work in the final response, commit, pull request, or changelog instead of the active task list.
 - Delete the task-list file after the final task is complete unless the user needs it retained as a durable record.
