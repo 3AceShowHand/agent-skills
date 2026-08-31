@@ -11,7 +11,7 @@ description: Use when implementing a non-trivial feature or enhancement that req
 - Give the complete known plan before starting. Report progress against that plan instead of turning ordinary implementation steps into new approval points.
 - Prefer the smallest design that expresses current requirements clearly and leaves a reviewable diff. Use `software-design` when module, interface, ownership, lifecycle, concurrency, or shared-abstraction decisions are material.
 - Route a dominant specialist risk to the applicable Skill instead of copying its checklist here.
-- Finish with necessary high-quality tests and an honest account of what remains unverified.
+- Verification is optional when inspection or a focused static check is sufficient. When runtime verification is necessary, run only specific tests that cover the change. Never run package-wide, multi-package, or full-suite test targets or enable failpoints unless the user explicitly requests them. Report what remains unverified.
 
 ## Workflow
 
@@ -23,7 +23,7 @@ description: Use when implementing a non-trivial feature or enhancement that req
 6. Implement in coherent vertical slices. Keep related behavior together and verify meaningful boundaries as work progresses.
 7. Preserve error context and handle realistic failures from external input, IO, networks, time, and concurrency at the layer that owns them.
 8. Remove only code, files, configuration, or tests made obsolete by the change.
-9. Add and run the necessary high-quality tests. Start with the narrowest relevant check and broaden according to actual risk.
+9. Add regression coverage only when the changed behavior needs it, then apply the minimum verification rule above.
 10. Review the final diff for scope, correctness, simplicity, dependencies, tests, and specialist risks. Report results and remaining uncertainty.
 
 ## Implementation Quality
@@ -47,7 +47,12 @@ Proceed when the risk is acceptable. Pause only when a material risk cannot be r
 
 ## Testing
 
-- Add or update tests for changed behavior, important boundaries, and realistic failure paths.
+- Choose verification in this order and stop at the first sufficient level:
+  1. Inspection, formatting, or a focused static check. Run no tests.
+  2. Specific named tests that directly exercise changed runtime behavior.
+  3. Package-wide, multi-package, full-suite, race, or failpoint-enabled targets only when the user explicitly requests that scope.
+- The existence of a broader repository test target does not justify running it.
+- Add or update tests only when changed behavior needs regression coverage; do not add or run tests ritualistically after every edit.
 - Use existing project test patterns and commands from repository instructions.
 - Do not introduce a new test framework solely for one change unless the user requests it or the existing project decision supports it.
 - Do not require a ritualized test order. Require evidence strong enough for the change's risk.
