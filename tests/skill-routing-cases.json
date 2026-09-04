@@ -414,6 +414,54 @@
       "expected_behavior": "Use repeated rework as evidence, separate Skill defects from execution defects, and enforce the confirmation gate."
     },
     {
+      "id": "github-submit-change",
+      "prompt": "The code fix and focused test are complete. Create the repository issue, commit and push the scoped files, then submit a pull request using the repository template.",
+      "expected_primary": "github-workflow",
+      "expected_supporting": ["clarity"],
+      "must_not_trigger": ["feature-development", "code-review", "write-great-document"],
+      "expected_behavior": "Inspect repository templates and labels, publish only authorized scoped changes, link the issue, and verify the stored GitHub bodies and automation state."
+    },
+    {
+      "id": "github-update-pr",
+      "prompt": "Update this pull request body to use the repository template, remove the repeated issue description, and verify that the linked issue is recognized.",
+      "expected_primary": "github-workflow",
+      "expected_supporting": ["clarity"],
+      "must_not_trigger": ["code-review", "feature-development", "write-great-document"],
+      "expected_behavior": "Edit the pull request with safely submitted Markdown, read it back, and verify formatting, linkage, labels, and blocking state."
+    },
+    {
+      "id": "github-public-issue",
+      "prompt": "Create a public GitHub issue and pull request from this internal test failure. Use the concrete SQL reproducer and keep internal dashboard links and execution IDs private.",
+      "expected_primary": "github-workflow",
+      "expected_supporting": ["clarity"],
+      "must_not_trigger": ["code-review", "observability-readiness", "write-great-document"],
+      "expected_behavior": "Use a public-safe reproducer, select the semantically correct issue type, keep the issue and pull request responsibilities distinct, and verify both published bodies."
+    },
+    {
+      "id": "github-review-only",
+      "prompt": "Review pull request 123 for correctness and report findings without changing its body, labels, branch, or commits.",
+      "expected_primary": "code-review",
+      "expected_supporting": [],
+      "must_not_trigger": ["github-workflow", "feature-development", "refactor"],
+      "expected_behavior": "Perform a read-only pull-request review and make no GitHub mutation."
+    },
+    {
+      "id": "github-actions-implementation",
+      "prompt": "Fix the GitHub Actions workflow that builds release artifacts and add focused validation for the change.",
+      "expected_primary": "feature-development",
+      "expected_supporting": [],
+      "must_not_trigger": ["github-workflow", "code-review", "write-great-document"],
+      "expected_behavior": "Implement and verify the workflow change without publishing an issue or pull request unless separately requested."
+    },
+    {
+      "id": "github-check-status-read-only",
+      "prompt": "Check the current CI status of pull request 123 and report which checks are still running. Do not change anything.",
+      "expected_primary": null,
+      "expected_supporting": [],
+      "must_not_trigger": ["github-workflow", "code-review", "feature-development"],
+      "expected_behavior": "Read and report the current check state without invoking a mutation workflow."
+    },
+    {
       "id": "no-skill-exact-literal",
       "prompt": "Find the exact string ERR_WORKER_STOPPED in this repository.",
       "expected_primary": null,
