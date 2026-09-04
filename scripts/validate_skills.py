@@ -16,6 +16,7 @@ CASES_FILE = ROOT / "tests" / "skill-routing-cases.json"
 REMOVED_NAMES = {
     "api-compatibility-review",
     "engineering-review",
+    "evolve-skills",
     "refactor-safety",
     "review-self",
 }
@@ -35,6 +36,7 @@ REQUIRED_CASE_IDS = {
     "compat-application-upgrade",
     "design-module-boundary",
     "evolve-user-correction",
+    "skills-install-cli",
     "no-skill-known-file-typo",
 }
 

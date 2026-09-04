@@ -5,7 +5,7 @@
       "prompt": "Implement a new approval workflow across the API, service, and persistence layers, including tests.",
       "expected_primary": "feature-development",
       "expected_supporting": ["codebase-navigation", "software-design"],
-      "must_not_trigger": ["diagnose-and-fix-bugs", "refactor", "code-review", "evolve-skills"]
+      "must_not_trigger": ["diagnose-and-fix-bugs", "refactor", "code-review", "skills-management"]
     },
     {
       "id": "feature-new-export",
@@ -68,7 +68,7 @@
       "prompt": "Review my current branch, including committed, staged, unstaged, and untracked changes.",
       "expected_primary": "code-review",
       "expected_supporting": ["codebase-navigation"],
-      "must_not_trigger": ["feature-development", "refactor", "diagnose-and-fix-bugs", "evolve-skills"]
+      "must_not_trigger": ["feature-development", "refactor", "diagnose-and-fix-bugs", "skills-management"]
     },
     {
       "id": "review-remote-pr",
@@ -158,7 +158,7 @@
       "prompt": "Investigate a production crash from logs and recent commits, identify the code defect, and explain the root cause.",
       "expected_primary": "diagnose-and-fix-bugs",
       "expected_supporting": ["codebase-navigation"],
-      "must_not_trigger": ["feature-development", "code-review", "evolve-skills"],
+      "must_not_trigger": ["feature-development", "code-review", "skills-management"],
       "expected_behavior": "Before naming a code-level cause, locate the relevant implementation in the exact executed version and trace the runtime entry point, call path, state or data changes, and effective configuration; then map the logs and commit history to that code path and keep unsupported causes as hypotheses."
     },
     {
@@ -243,7 +243,7 @@
       "prompt": "A release branch runs out of memory while main succeeds. Compare their logs and source, identify the root cause and the regression trigger, and assess a nearby scan-window commit that is currently suspected.",
       "expected_primary": "performance-engineering",
       "expected_supporting": ["codebase-navigation"],
-      "must_not_trigger": ["feature-development", "diagnose-and-fix-bugs", "evolve-skills"],
+      "must_not_trigger": ["feature-development", "diagnose-and-fix-bugs", "skills-management"],
       "expected_behavior": "First locate and trace the relevant implementation and effective configuration in both exact executed revisions, including semantic equivalents hidden by file or symbol differences. Then try to falsify the scan-window hypothesis by checking whether the behavior is present, enabled, and materially different in the successful baseline; reject it as the branch differentiator if it is shared unchanged without interaction evidence. Treat commit messages and file presence only as navigation clues, separate the direct memory-retention mechanism from its trigger and introducing commit, label untested candidates as hypotheses, and propose one-variable validation."
     },
     {
@@ -321,7 +321,7 @@
       "prompt": "Create a local Markdown design document from this discussion and the relevant code.",
       "expected_primary": "write-great-document",
       "expected_supporting": ["codebase-navigation", "clarity"],
-      "must_not_trigger": ["software-design", "feature-development", "project-agents-bootstrap", "evolve-skills"]
+      "must_not_trigger": ["software-design", "feature-development", "project-agents-bootstrap", "skills-management"]
     },
     {
       "id": "document-task-list",
@@ -376,7 +376,7 @@
     {
       "id": "evolve-user-correction",
       "prompt": "This answer is low quality: it repeats itself, buries the conclusion, and uses unnecessary 'not X but Y' framing. Analyze why this happened and prevent it in future answers, then wait for my confirmation before editing anything.",
-      "expected_primary": "evolve-skills",
+      "expected_primary": "skills-management",
       "expected_supporting": ["clarity"],
       "must_not_trigger": ["write-great-document", "feature-development", "code-review"],
       "expected_behavior": "Infer the responsible Skill from the criticized output, report the evidence, attribution, generalized principle, scope, and a counterexample, then stop without editing."
@@ -384,7 +384,7 @@
     {
       "id": "evolve-document-format-feedback",
       "prompt": "The document you produced is hard to read: long explanations are crammed into table cells and multi-line list items run together. Determine what guidance should change and wait for my confirmation before editing it.",
-      "expected_primary": "evolve-skills",
+      "expected_primary": "skills-management",
       "expected_supporting": ["write-great-document", "clarity"],
       "must_not_trigger": ["feature-development", "code-review", "refactor"],
       "expected_behavior": "Map the format and readability feedback to write-great-document and clarity, then stop for confirmation."
@@ -392,7 +392,7 @@
     {
       "id": "evolve-review-quality-feedback",
       "prompt": "Your review was low quality: it focused on naming while missing a data-loss path. Analyze the failure and prevent it in future reviews, but do not edit anything until I confirm.",
-      "expected_primary": "evolve-skills",
+      "expected_primary": "skills-management",
       "expected_supporting": ["code-review"],
       "must_not_trigger": ["feature-development", "refactor", "write-great-document"],
       "expected_behavior": "Treat criticism of a task result as evolution evidence, identify code-review as the owner, and distinguish a Skill defect from an execution defect."
@@ -400,7 +400,7 @@
     {
       "id": "evolve-routing-failure",
       "prompt": "Code review failed to trigger for two remote pull-request reviews. Determine whether its trigger is defective, generalize a correction, and stop for confirmation before changing the Skill.",
-      "expected_primary": "evolve-skills",
+      "expected_primary": "skills-management",
       "expected_supporting": ["code-review"],
       "must_not_trigger": ["feature-development", "refactor", "write-great-document"],
       "expected_behavior": "Distinguish a routing defect from agent noncompliance and pause after presenting the proposed trigger principle."
@@ -408,10 +408,34 @@
     {
       "id": "evolve-repeated-rework",
       "prompt": "Feature work has repeatedly exposed incomplete plans one decision at a time. Assess whether feature-development caused the rework, derive a reusable rule, and do not modify files until I confirm it.",
-      "expected_primary": "evolve-skills",
+      "expected_primary": "skills-management",
       "expected_supporting": ["feature-development"],
       "must_not_trigger": ["diagnose-and-fix-bugs", "refactor", "write-great-document"],
       "expected_behavior": "Use repeated rework as evidence, separate Skill defects from execution defects, and enforce the confirmation gate."
+    },
+    {
+      "id": "skills-create-after-name",
+      "prompt": "Create a Skill for managing pull-request publication. Discuss and confirm its name with me before creating any files.",
+      "expected_primary": "skills-management",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "write-great-document", "github-workflow"],
+      "expected_behavior": "Confirm the final Skill name and trigger boundary before scaffolding, then create and validate the Skill in its source repository."
+    },
+    {
+      "id": "skills-rename",
+      "prompt": "Rename evolve-skills to skills-management, preserve its feedback workflow, and expand it to own the full Skill lifecycle.",
+      "expected_primary": "skills-management",
+      "expected_supporting": [],
+      "must_not_trigger": ["refactor", "feature-development", "write-great-document"],
+      "expected_behavior": "Rename the source directory and every authoritative reference, preserve unrelated changes, add lifecycle regression coverage, and validate routing."
+    },
+    {
+      "id": "skills-install-cli",
+      "prompt": "Commit, push, and install this Skill globally for Codex and Pi using our standard Skill tooling.",
+      "expected_primary": "skills-management",
+      "expected_supporting": [],
+      "must_not_trigger": ["github-workflow", "feature-development", "project-agents-bootstrap"],
+      "expected_behavior": "Review and commit only the requested changes, push the authorized branch, install only through the skills CLI, and verify the universal installation without creating duplicate copies."
     },
     {
       "id": "github-submit-change",
