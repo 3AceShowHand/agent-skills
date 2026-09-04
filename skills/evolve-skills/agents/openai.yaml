@@ -1,4 +1,0 @@
-interface:
-  display_name: "Evolve Skills"
-  short_description: "Turn agent feedback into safe Skill improvements"
-  default_prompt: "Use $evolve-skills to analyze this agent feedback, identify the responsible Skills, generalize the lesson, and stop for confirmation before editing."

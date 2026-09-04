@@ -83,15 +83,15 @@ On every update, merge overlapping entries, remove cleared entries, and trim evi
 ### evolve-analysis-reported-as-skill-list
 
 - Status: `observing`
-- Affected Skills: `evolve-skills`, `clarity`
+- Affected Skills: `skills-management`, `clarity`
 - First observed: 2026-08-07
 - Last observed: 2026-08-07
 - Occurrences: 1
-- Pattern: The response says that `evolve-skills` was used but omits the observed problem, attribution, generalized principle, and proposed next action.
-- Evidence: The response reported only that `evolve-skills` analyzed a routing deviation and changed no files; the user asked what problem was found and what would be done.
-- Attribution: Execution defect. `evolve-skills` already requires the missing report fields.
+- Pattern: The response says that `skills-management` was used but omits the observed problem, attribution, generalized principle, and proposed next action.
+- Evidence: The response reported only that `skills-management` analyzed a routing deviation and changed no files; the user asked what problem was found and what would be done.
+- Attribution: Execution defect. `skills-management` already requires the missing report fields.
 - Similarity boundary: Update when Skill usage is disclosed without the material result required by that Skill. Do not update when the Skill performed no material analysis and a name-only disclosure is all the user requested.
-- Next review trigger: Another confirmed omission of required `evolve-skills` analysis. Reassess whether the reporting contract needs a shorter mandatory template.
+- Next review trigger: Another confirmed omission of required `skills-management` analysis. Reassess whether the reporting contract needs a shorter mandatory template.
 
 ### standalone-document-routed-to-code-review
 

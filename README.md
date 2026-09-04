@@ -30,7 +30,7 @@ This repository is the source of truth for my custom Skills. Skills are maintain
 - `performance-engineering`: guide measured performance optimization and regression analysis.
 - `observability-readiness`: ensure production changes have useful logs, metrics, traces, alerts, dashboards, and runbook signals.
 - `clarity`: keep all original user-facing narrative content direct, precise, concise, and useful.
-- `evolve-skills`: turn feedback on agent results, processes, and behavior into minimal, regression-tested Skill improvements.
+- `skills-management`: create, evolve, rename, validate, release, and install Skills through their source repository and the `skills` CLI.
 - `github-workflow`: create, update, link, and verify GitHub issues and pull requests.
 - `write-great-document`: organize and maintain local Markdown documents, including complete and readable active task lists.
 
