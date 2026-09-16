@@ -37,6 +37,7 @@ REQUIRED_CASE_IDS = {
     "design-module-boundary",
     "evolve-user-correction",
     "skills-install-cli",
+    "quality-clarity-adversative-frame",
     "no-skill-known-file-typo",
 }
 

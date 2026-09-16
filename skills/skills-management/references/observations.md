@@ -67,18 +67,20 @@ On every update, merge overlapping entries, remove cleared entries, and trim evi
 
 ### redundant-expression-causing-language-error
 
-- Status: `investigating`
+- Status: `escalated`
 - Affected Skills: `clarity`
 - First observed: 2026-08-07
-- Last observed: 2026-08-07
-- Occurrences: 2
-- Pattern: User-facing prose repeats an established meaning or adds process narration without a useful result, producing redundancy, awkwardness, or confusion.
+- Last observed: 2026-08-19
+- Occurrences: 4
+- Pattern: User-facing prose repeats an established meaning, adds process narration without a useful result, or uses a reject-X/assert-Y frame where direct claims would be clearer.
 - Evidence:
   - After stating “最有价值的结论是……”, the response added “这个判断是对的”, repeating the same evaluation.
   - A progress update added two statements about avoiding repository and format problems; neither helped the user understand the result or next action.
-- Attribution: Repeated execution defect under investigation. `clarity` already requires one job per sentence, removal of self-commentary, and merging repeated claims; both occurrences came from one conversation, so they do not yet establish a Skill defect.
-- Similarity boundary: Update for repeated conclusions, duplicate evaluation, or process explanation that adds no result, evidence, risk, action, or necessary question. Do not update for deliberate restatement required to preserve a safety condition or prevent material misunderstanding.
-- Next review trigger: Another confirmed instance of semantically redundant or non-contributing user-facing prose. Reassess whether the existing `clarity` instructions are overloaded or insufficiently salient.
+  - A technical explanation introduced an ownership conclusion through a reject-X/assert-Y frame; the user assigned this construction a zero score and prohibited it from user-visible output.
+  - A document principle stated independence from an output mechanism, then appended its direct implication; the user identified the trailing explanation as redundant.
+- Attribution: Confirmed Skill defect. `clarity` conditionally permitted contrast while an example discouraged one instance, leaving a permissive rule that repeatedly allowed low-value framing. The confirmed correction replaces that ambiguity with a hard structural gate.
+- Similarity boundary: Update for repeated conclusions, duplicate evaluation, non-contributing process explanation, or adversative correction framing. Exclude deliberate repetition needed to preserve a safety condition; express that repetition through direct statements.
+- Next review trigger: Validate the hard gate against direct explanations, material distinctions, and source paraphrases. Clear this observation after the source change is released to its intended agents.
 
 ### evolve-analysis-reported-as-skill-list
 
@@ -105,3 +107,18 @@ On every update, merge overlapping entries, remove cleared entries, and trim evi
 - Attribution: Routing execution defect. The artifact and requested deliverable were not classified before selecting the Skill.
 - Similarity boundary: Update for standalone requirements, current-state, or narrative document reviews incorrectly routed to `code-review`. Do not update for design reviews tied to implementation boundaries, a pull request, or a pre-merge change assessment.
 - Next review trigger: Another confirmed document-type misrouting. Reassess whether `code-review` metadata or routing cases leave “design review” too broad.
+
+### split-delivery-consumers-omitted-from-complexity-review
+
+- Status: `investigating`
+- Affected Skills: `ponytail-review`, `codebase-navigation`
+- First observed: 2026-08-28
+- Last observed: 2026-08-28
+- Occurrences: 2
+- Pattern: A complexity review labels provider APIs as unused or speculative after checking only the current branch, while concrete consumers and orchestration live in linked branches or repositories.
+- Evidence:
+  - The review proposed deleting SDK capability interfaces because the SDK branch had no local callers; the user identified caselib consumers on the companion `add-kafka-auth` branch.
+  - The revised scope included the consumer branch but omitted a registered test-plan YAML that provisions the resources and executes every Kafka security profile, including HTTP OAuth compatibility.
+- Attribution: Repeated execution defect under investigation. `codebase-navigation` already requires tracing direct consumers and external contracts, while `ponytail-review` limits findings to the diff without authorizing local-call-count assumptions about an explicitly split delivery.
+- Similarity boundary: Update when concrete repository evidence or user-provided context links provider, consumer, and orchestration artifacts across branches or repositories. Exclude nearby branches and repositories connected only by similar names or speculative future plans.
+- Next review trigger: Reassess whether either Skill needs an explicit cross-artifact scope check after an independent recurrence, or after a review repeats this error despite having the linked delivery context up front.
