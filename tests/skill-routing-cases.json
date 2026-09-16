@@ -360,10 +360,19 @@
     },
     {
       "id": "clarity-direct-revision",
-      "prompt": "Tighten this explanation by removing filler, repeated conclusions, and unnecessary 'not X but Y' setup without changing its meaning.",
+      "prompt": "Tighten this explanation by removing filler, repeated conclusions, and unnecessary reject-X/assert-Y setup without changing its meaning.",
       "expected_primary": "clarity",
       "expected_supporting": [],
-      "must_not_trigger": ["write-great-document", "refactor", "code-review", "software-design"]
+      "must_not_trigger": ["write-great-document", "refactor", "code-review", "software-design"],
+      "expected_behavior": "Rewrite paired and compressed correction frames as direct claims and treat any semantic equivalent that remains as a zero-score quality failure."
+    },
+    {
+      "id": "quality-clarity-adversative-frame",
+      "prompt": "Rewrite this explanation so it states the ownership change directly and removes the reject-X/assert-Y rhetorical frame.",
+      "expected_primary": "clarity",
+      "expected_supporting": [],
+      "must_not_trigger": ["write-great-document", "refactor", "code-review", "software-design"],
+      "expected_behavior": "State each useful fact directly, emit no paired or compressed correction frame in any language, and assign a zero score if any semantic equivalent remains."
     },
     {
       "id": "clarity-real-actor",
@@ -375,7 +384,7 @@
     },
     {
       "id": "evolve-user-correction",
-      "prompt": "This answer is low quality: it repeats itself, buries the conclusion, and uses unnecessary 'not X but Y' framing. Analyze why this happened and prevent it in future answers, then wait for my confirmation before editing anything.",
+      "prompt": "This answer is low quality: it repeats itself, buries the conclusion, and uses unnecessary reject-X/assert-Y framing. Analyze why this happened and prevent it in future answers, then wait for my confirmation before editing anything.",
       "expected_primary": "skills-management",
       "expected_supporting": ["clarity"],
       "must_not_trigger": ["write-great-document", "feature-development", "code-review"],
