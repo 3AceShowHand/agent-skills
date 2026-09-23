@@ -1,0 +1,4 @@
+interface:
+  display_name: "GitHub Workflow"
+  short_description: "Create and verify GitHub issues and pull requests"
+  default_prompt: "Use $github-workflow to prepare and submit this GitHub issue and pull request safely."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Skills Management"
+  short_description: "Manage Skill creation, evolution, release, and installation"
+  default_prompt: "Use $skills-management to manage this Skill change from source and validation through the authorized release and installation steps."
