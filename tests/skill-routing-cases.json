@@ -382,6 +382,14 @@
       "expected_behavior": "Infer the responsible Skill from the criticized output, report the evidence, attribution, generalized principle, scope, and a counterexample, then stop without editing."
     },
     {
+      "id": "skills-first-midtask-correction",
+      "prompt": "You drafted an issue as a feature request with a proposed fix. During the same task, the user responds: 'This improves an existing workflow, so it is an enhancement. The issue should describe only the observed problem.'",
+      "expected_primary": "skills-management",
+      "expected_supporting": ["github-workflow"],
+      "must_not_trigger": ["feature-development", "diagnose-and-fix-bugs"],
+      "expected_behavior": "Apply skills-management on the first explicit correction without waiting for a separate Skill request; correct the authorized draft, attribute the mistake, and keep the Skill source confirmation gate."
+    },
+    {
       "id": "evolve-document-format-feedback",
       "prompt": "The document you produced is hard to read: long explanations are crammed into table cells and multi-line list items run together. Determine what guidance should change and wait for my confirmation before editing it.",
       "expected_primary": "skills-management",
@@ -444,6 +452,22 @@
       "expected_supporting": ["clarity"],
       "must_not_trigger": ["feature-development", "code-review", "write-great-document"],
       "expected_behavior": "Inspect repository templates and labels, publish only authorized scoped changes, link the issue, and verify the stored GitHub bodies and automation state."
+    },
+    {
+      "id": "github-existing-ci-speedup-issue",
+      "prompt": "Create an issue for a pull request that only speeds up existing unit tests and CI without changing product behavior. The repository has an enhancement label but only bug and feature-request issue forms. Include the observed duration and its effect on feedback time.",
+      "expected_primary": "github-workflow",
+      "expected_supporting": ["clarity"],
+      "must_not_trigger": ["feature-development", "skills-management"],
+      "expected_behavior": "Classify the issue as an enhancement, use a concise body when no form fits, and describe only the observed problem and impact; keep the implementation and measured improvement in the PR."
+    },
+    {
+      "id": "github-new-capability-request",
+      "prompt": "Create an issue requesting a new user-visible export capability using the repository's feature-request form, which requires a description of the desired behavior.",
+      "expected_primary": "github-workflow",
+      "expected_supporting": ["clarity"],
+      "must_not_trigger": ["skills-management", "diagnose-and-fix-bugs"],
+      "expected_behavior": "Use the feature-request form and fill its required desired-behavior field; do not classify a new capability as an enhancement to an existing workflow."
     },
     {
       "id": "github-update-pr",

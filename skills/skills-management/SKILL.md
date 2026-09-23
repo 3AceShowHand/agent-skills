@@ -1,6 +1,6 @@
 ---
 name: skills-management
-description: Use when creating, naming, updating, renaming, validating, publishing, installing, removing, or reviewing Skills; or when user feedback, repeated rework, routing failures, or cross-agent differences suggest that Skill behavior should improve. Owns the Skill lifecycle from source changes and regression evidence through authorized release and installation with the skills CLI. Do not use when a Skill merely applies to an ordinary task and no durable Skill change is requested or supported.
+description: Use when creating, naming, updating, renaming, validating, publishing, installing, removing, or reviewing Skills; immediately when a user rejects or corrects an agent result or process, including during an ongoing task; or when outcomes, repeated rework, routing failures, or cross-agent differences suggest that Skill behavior should improve. Owns the Skill lifecycle from source changes and regression evidence through authorized release and installation with the skills CLI. Ordinary task preferences given before any agent result are not feedback on Skill behavior.
 ---
 
 # Skills Management
@@ -12,7 +12,7 @@ Manage the complete Skill lifecycle while keeping source, release, and installed
 - Create: confirm the purpose, trigger boundary, and final name before generating files.
 - Update: identify the source instruction and the smallest behavior change.
 - Rename: move the source directory and update frontmatter, UI metadata, catalogs, routing cases, references, validators, and installation state.
-- Evolve from feedback: evaluate evidence and attribute the failure before changing durable guidance.
+- Evolve from feedback: trigger on the first explicit rejection or correction of your result, correct the active task, and attribute the failure before changing durable guidance. A new preference given before you produce a result is ordinary task guidance.
 - Release or install: validate, commit, push, and install only the steps the user authorized.
 
 Do not create a tentative Skill directory while its name is still under discussion. A user-specified final name and scope are direct confirmation for that requested change.
@@ -74,7 +74,7 @@ Reject principles that merely restate the incident, duplicate model defaults, gr
 
 Report the observed problem, attribution, generalized principle, affected scope, and one representative counterexample. State the proposed next action.
 
-Stop before editing files, adding tests, committing, pushing, or installing. Continue only after the user confirms or corrects the attribution and generalized principle. Treat silence as no confirmation. Return to this checkpoint when later evidence changes the principle or scope materially.
+Stop before editing Skill source files, adding Skill tests, committing, pushing, or installing Skill changes. Continue corrections already authorized for the active task. Resume Skill changes only after the user confirms or corrects the attribution and generalized principle. Treat silence as no confirmation. Return to this checkpoint when later evidence changes the principle or scope materially.
 
 This checkpoint applies to inferred improvements from feedback. Proceed when the user directly requests a specific creation, rename, update, removal, release, or installation and its scope is clear.
 

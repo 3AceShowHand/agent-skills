@@ -24,11 +24,11 @@ description: Use when creating, updating, linking, or submitting GitHub issues a
 
 ## Issue Content
 
-- Select the issue type from the actual scope and repository taxonomy. A test utility or infrastructure capability gap may be an enhancement even when its symptom is a panic.
-- State the problem with a minimal reproducible input, observed behavior, expected behavior when useful, and a supported basic cause.
+- Select the issue type from the actual scope and repository taxonomy. A behavior-preserving speedup to existing tests or CI is an enhancement when that type exists; do not use a feature-request form merely because there is no enhancement form.
+- State the observed problem and its impact with supporting evidence. Include expected behavior only when the user asks for it, the problem would otherwise be unclear, or the repository template requires it.
 - Keep implementation proposals out of the issue unless the user requests them or the selected issue type requires a proposal. A feature-request form may legitimately ask for desired behavior or alternatives.
 - Replace internal evidence with a public-safe reproduction. Do not expose private hostnames, dashboard URLs, execution or build identifiers, credentials, customer data, or internal logs in a public repository.
-- Use the dedicated repository template when one fits. Preserve required headings without filling optional sections with boilerplate.
+- Use the dedicated repository template when one fits. Use a concise issue body when no template matches the issue type, and preserve required headings without filling optional sections with boilerplate.
 
 ## Pull Request Content
 
