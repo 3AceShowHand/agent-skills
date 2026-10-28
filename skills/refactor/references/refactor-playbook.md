@@ -14,7 +14,7 @@
 - Migrate one caller or package at a time.
 - Keep old path as adapter while migrating.
 - Remove old path only after all callers move.
-- Keep tests passing at each meaningful step.
+- Verify each meaningful step with the smallest sufficient static or executable evidence.
 - Revert or pause if a step reveals hidden behavior change.
 
 ## Keep Separate

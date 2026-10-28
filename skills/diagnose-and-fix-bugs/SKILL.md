@@ -11,7 +11,7 @@ description: Use when diagnosing or fixing functional bugs, flaky tests, regress
 - Before proposing a code-level cause, locate the relevant implementation in the exact version that ran and trace the entry point, call path, state or data changes, and effective configuration that can produce the symptom. Use logs and metrics to test that code mechanism, not replace source inspection.
 - Scale rigor to difficulty: one strong hypothesis may be enough for an obvious bug; hard bugs need a tighter loop, minimization, and ranked hypotheses.
 - Do not make a speculative fix when the failure cannot be reproduced or supported by evidence.
-- Fix root cause with the smallest safe change and leave regression coverage or a clear reproduction note.
+- Fix root cause with the smallest safe change and verify the changed invariant with sufficient evidence.
 
 ## Workflow
 
@@ -23,9 +23,9 @@ description: Use when diagnosing or fixing functional bugs, flaky tests, regress
 6. Form falsifiable hypotheses. For hard bugs, rank 3–5 and state what observation would confirm or reject each one.
 7. Test one variable at a time. Prefer debugger inspection or targeted, uniquely tagged logs; do not log everything.
 8. If evidence shows that performance is the dominant problem rather than functional correctness, hand the reproduction, source path, and evidence to `performance-engineering` before changing code.
-9. Add a failing regression test at the real bug seam before the fix when feasible.
+9. Identify behavior changed by this fix that existing checks leave uncovered before adding a regression test. Add focused coverage at the real bug seam for a meaningful gap within the requested fix.
 10. Apply the smallest root-cause fix. Avoid unrelated cleanup.
-11. Re-run the original feedback loop and regression test, then broaden verification only as risk requires.
+11. Select verification from the current diff and unresolved risks. For mechanical cleanup such as a local rename or standalone test deletion, inspect bindings, remaining references, imports, and the diff statically. Finish once that evidence resolves the affected behavior; execute compilation or tests only for a specific uncovered failure mode or a mandatory repository check. Repeat earlier commands only when new changes invalidate their evidence.
 12. Remove temporary instrumentation and harnesses. Record the supported root cause, remaining uncertainty, and any architectural gap that prevented good coverage.
 
 ## Feedback Loop Standard
@@ -55,4 +55,4 @@ If no useful loop can be built, list what was tried and request the missing envi
 
 - Separate observed facts, hypotheses, and assumptions.
 - Do not claim root cause unless evidence supports it.
-- Report the feedback-loop command, results before and after the fix, remaining uncertainty, and skipped checks.
+- Report the verification evidence and remaining uncertainty. Distinguish static conclusions from commands actually run and their results.

@@ -68,7 +68,7 @@ A completed code review report is a different artifact. Preserve its evidence-ba
 - Determine order from actual dependencies. Do not infer a dependency only from list position.
 - Without violating dependencies, order tasks from higher priority and risk to lower priority and risk.
 - Within the same risk level, prefer vertical slices that complete one end-to-end outcome before expanding.
-- Remove completed execution tasks immediately. For code review guides, retain useful review entry points and remove verified condition text as specified above.
+- Remove completed execution tasks and references that serve only those tasks immediately. For code review guides, retain useful review entry points and remove verified condition text as specified above. Preserve history only when the requested artifact calls for it.
 - Delete the task-list file after the final task is complete unless the user needs it retained as a durable record.
 - Update the document when scope, priority, risk, blockers, or pending verification changes.
 
