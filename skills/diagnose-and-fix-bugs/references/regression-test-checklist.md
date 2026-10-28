@@ -2,6 +2,7 @@
 
 ## Test Value
 
+- Identify the uncovered behavior and the invariant's owner. Reuse existing coverage when it already protects the changed behavior.
 - The test fails before the fix and passes after it when feasible.
 - The test checks externally meaningful behavior.
 - The test is deterministic or controls timing, randomness, and concurrency.

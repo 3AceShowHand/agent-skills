@@ -7,7 +7,7 @@ description: Use for deep code review, self-review of the current local branch o
 
 ## Core Contract
 
-- Review only. Do not edit code, run formatters, commit, merge, reset, checkout, or rewrite the user's worktree.
+- Review only. Do not edit code, run formatters, commit, merge, reset, checkout, or rewrite the user's worktree. The only authorized write is the review task-list artifact under the conditions stated in the Report section.
 - Establish the exact review target and comparison base before judging the change.
 - Read repository instructions before assessing project commands, generated files, tests, compatibility, or done criteria.
 - Lead with evidence-backed findings ordered by severity. Do not manufacture low-value comments when no actionable issue exists.
@@ -52,11 +52,12 @@ Supported script options:
 3. Summarize what changed and build a guided reading path from entry points, authoritative definitions, state owners, public boundaries, and tests. Use `codebase-navigation` when structural tracing is substantial.
 4. Review correctness and invariants before maintainability. Follow unclear definitions and call paths instead of guessing from names.
 5. Review scope, simplicity, and dependency changes. Use `software-design` when module boundaries, interfaces, information hiding, ownership, lifecycle, concurrency, resources, or competing design tradeoffs are material.
-6. Review tests for changed behavior, boundaries, failure paths, regression coverage, and signal quality. Flag excessive tests when they increase maintenance without protecting behavior.
+6. Review tests for changed behavior, boundaries, failure paths, regression coverage, and signal quality. Assign assertions to the module that owns the invariant; caller tests cover their own contracts, including lifecycle responsibilities they actually own. Request additional caller coverage only for a demonstrated contract gap; receiving a borrowed helper alone provides no evidence of one. Flag repeated helper assertions in callers when they add no independent coverage.
 7. Check performance hygiene for changed runtime paths: algorithmic complexity, expected scale, repeated IO, avoidable allocation or copying, blocking, and contention. Require measurement only when making a performance claim.
 8. Route specialist risks when deeper analysis is needed.
 9. Verify each candidate finding against the actual code or design, remove speculative or style-only comments, and order the remaining findings by severity.
 10. Report findings first, followed by scope, evidence, unresolved questions, and unverified areas.
+11. When actionable findings remain and the user or repository has authorized a durable review artifact, create or update a Markdown review task list through `write-great-document`. Treat unresolved findings as unfinished remediation work after the review ends, and represent every unresolved finding as a top-level `- [ ]` task. Group tasks by severity and include evidence, required outcomes, and verification. Keep the chat report findings-first and link the artifact.
 
 ## Code Quality Review
 
@@ -94,6 +95,8 @@ Use `code-review` to preserve the common scope and final findings. Load speciali
 5. Unverified areas and the reason they remain unverified.
 
 If there are no actionable findings, say so directly and still state the reviewed scope and remaining uncertainty.
+
+Do not create or update a review artifact when no actionable findings remain, the user requests a chat-only or read-only review, or no writable workspace is in scope.
 
 ## Script
 

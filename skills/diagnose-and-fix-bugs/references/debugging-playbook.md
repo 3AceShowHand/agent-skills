@@ -60,9 +60,10 @@ For performance regressions, measure a baseline first. Prefer a profiler, query 
 
 ## Verify
 
-- Run the reproduction after the fix.
-- Add or update regression coverage when feasible.
-- Run the narrowest relevant test first.
+- Select evidence for the current diff and remaining uncertainty; static inspection can complete verification for mechanical edits.
+- Re-run the reproduction to establish a behavioral fix when needed.
+- Add or update regression coverage for a meaningful gap in existing checks.
+- Execute the narrowest check that resolves a specific uncertainty or satisfies repository requirements.
 - Broaden only when risk requires it.
 - Report any remaining uncertainty.
 

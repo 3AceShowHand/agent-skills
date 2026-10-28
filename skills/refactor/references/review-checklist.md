@@ -10,7 +10,7 @@
 ## Behavior
 
 - What behavior is preserved?
-- Which tests prove it?
+- Which static or executable evidence verifies it?
 - Are public APIs, configs, protocols, metrics, logs, and errors unchanged?
 - Are edge cases and failure paths preserved?
 

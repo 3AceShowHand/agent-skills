@@ -24,7 +24,7 @@ description: Use for behavior-preserving refactors, staged rewrites, module move
 2. State non-goals: no feature changes, no compatibility changes, no error-semantic changes, no performance claims unless explicitly requested.
 3. Inspect callers, tests, docs, configs, generated code, and public surfaces affected by the refactor.
 4. Add characterization tests when behavior is important and coverage is weak.
-5. Split work into small reversible steps that compile and test between meaningful boundaries.
+5. Split work into small reversible steps and verify at meaningful boundaries. For a local rename or standalone test deletion, inspect bindings, remaining references, imports, and the diff statically. Finish once that evidence resolves the affected behavior; execute compilation or tests only for a specific uncovered failure mode or a mandatory repository check.
 6. Separate mechanical moves or renames from semantic edits.
 7. Do not infer a public API from language visibility alone. Treat a symbol as a compatibility contract only when actual external, documented, generated, persisted, or cross-version consumers depend on it.
 8. Preserve public APIs unless the user explicitly requests a breaking change. A branch-local symbol with no independent consumer may be renamed after its repository callers are migrated.

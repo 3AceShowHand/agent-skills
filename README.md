@@ -14,6 +14,7 @@ This repository is the source of truth for my custom Skills. Skills are maintain
 - Write only instructions the agent would not reliably infer: required actions and prohibitions. Omit statements that merely grant a default capability or explain what remains allowed after a prohibition.
 - Use `agents/` metadata only as optional UI integration. Core behavior belongs in `SKILL.md` and `references/`.
 - Keep `SKILL.md` concise. Put longer checklists, templates, and examples in `references/`.
+- Complete source updates through the [release sequence](skills/skills-management/SKILL.md#release): verify behavior, commit, push, then install from the published ref through the skills CLI.
 
 ## Skills
 

@@ -443,7 +443,23 @@
       "expected_primary": "skills-management",
       "expected_supporting": [],
       "must_not_trigger": ["github-workflow", "feature-development", "project-agents-bootstrap"],
-      "expected_behavior": "Review and commit only the requested changes, push the authorized branch, install only through the skills CLI, and verify the universal installation without creating duplicate copies."
+      "expected_behavior": "Confirm behavior and validation, review and commit only the requested changes, push the authorized branch and verify its SHA, then install through the skills CLI from the published ref containing that commit. Verify installed contents against the commit and the universal installation without creating duplicate copies."
+    },
+    {
+      "id": "skills-release-push-failure",
+      "prompt": "The verified update to 3AceShowHand/agent-skills is committed, but its push failed. A local checkout could still be installed. Finish the repository update.",
+      "expected_primary": "skills-management",
+      "expected_supporting": [],
+      "must_not_trigger": ["github-workflow", "feature-development", "project-agents-bootstrap"],
+      "expected_behavior": "Preserve the commit and resolve or report the push failure. Installation remains blocked until publication succeeds; a local-path install cannot substitute for the repository release sequence."
+    },
+    {
+      "id": "skills-explicit-local-preview",
+      "prompt": "Install this uncommitted Skill from a local checkout as a preview using the skills CLI. Do not commit or publish it.",
+      "expected_primary": "skills-management",
+      "expected_supporting": [],
+      "must_not_trigger": ["github-workflow", "feature-development", "project-agents-bootstrap"],
+      "expected_behavior": "Use the skills CLI for the explicitly requested local preview, report the preview state accurately, and preserve the user's no-commit and no-publication boundary."
     },
     {
       "id": "github-submit-change",
