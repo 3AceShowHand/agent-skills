@@ -15,6 +15,7 @@ Apply these standards to the first draft and subsequent updates:
 - Make headings identify the section's actual subject and distinguish it from neighboring sections. Avoid generic workflow labels such as `Current Stage` when the section contains more specific material such as requirement inputs and open questions.
 - Name components, fields, and states exactly as the code, configuration, or API names them, or describe them in plain words. Do not coin labels, metaphors, or abbreviations that the sources do not use.
 - Keep each fact, decision, assumption, unknown, and recommendation in one canonical location.
+- Separate what was observed from what was inferred. A consequence derived by reading code is presented as inference, never as confirmed behavior.
 - When the user removes a topic from scope, delete its sections, links, comparisons, caveats, deferred-work notes, and exclusion statements. Do not preserve the removed topic by explaining that it is unnecessary, unverified, fixed, deferred, or outside the current scope. Retain only facts that still serve another explicitly requested part of the document.
 - When a finding, issue, or decision is resolved, delete its section instead of labeling it implemented or fixed. Remove its rows from status tables and priority lists, its remaining-work entries, and its fix and verification records, keeping no work log.
 - Follow Markdown conventions. Use correct syntax for headings, lists, code blocks, and links.

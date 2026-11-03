@@ -31,6 +31,9 @@ Use these rules for todo documents, review queues, migration plans, and implemen
 Use this shape for a code review guide, checklist, plan, or queue that tracks unfinished review work:
 
 - Group tasks by actual priority. Put correctness and resource safety before tests, scope, and maintainability. Omit empty priority groups.
+- State the severity criteria and the evidence labels once, near the start of the worklist, then use them consistently. Available evidence labels are observed or measured, inferred from reading the code, and constructed from conditions.
+- Mark each finding's evidence level. A consequence derived from reading code is stated as inference; never present it as confirmed behavior.
+- For a partly implemented item, state the current status inside the item and keep only the remaining action. Delete the item once it is fully resolved.
 - Make every review outcome a top-level `- [ ]` task. Keep code, tests, risks, verification, and completion conditions as indented supporting details.
 - When a supporting field such as `Code` or `Tests` contains multiple elements, put the field label on its own line and list each element as a child item. A field with one element may remain inline.
 - Use repository-relative Markdown links with `#L<line>` anchors when the document renderer supports source jumps. Resolve links from the document's location and verify every target and line.
