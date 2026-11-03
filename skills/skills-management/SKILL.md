@@ -12,7 +12,7 @@ Manage the complete Skill lifecycle while keeping source, release, and installed
 - Create: confirm the purpose, trigger boundary, and final name before generating files.
 - Update: identify the source instruction and the smallest behavior change.
 - Rename: move the source directory and update frontmatter, UI metadata, catalogs, routing cases, references, validators, and installation state.
-- Evolve from feedback: trigger on the first explicit rejection or correction of your result, correct the active task, and attribute the failure before changing durable guidance. A new preference given before you produce a result is ordinary task guidance.
+- Evolve from feedback: trigger on the first rejection, correction, preference, or rework request aimed at your behavior or output, including one embedded in an ordinary task instruction. Correct the active task, attribute the failure, and record the evidence before changing durable guidance. A preference stated before any result exists is task guidance until the user ties it to how the agent should work.
 - Release or install: complete the source repository's release sequence. Honor explicit review-only, source-only, and preview-only requests.
 
 Do not create a tentative Skill directory while its name is still under discussion. A user-specified final name and scope are direct confirmation for that requested change.
@@ -52,13 +52,14 @@ Advance routing and Skill defects. Before closing a repeated failure as an execu
 
 ## Maintain Observations
 
-Use `references/observations.md` for user-confirmed evidence that is not yet sufficient to justify a Skill change. Add or update an observation only after the user confirms that it should be retained.
+Use `references/observations.md` for evidence that is not yet sufficient to justify a Skill change. Recording an observation is not a source change: write it as soon as the correction is explicit instead of waiting for separate confirmation.
 
 - Merge similar errors by behavior and likely cause instead of creating one record per phrasing.
 - Treat recurrence as stronger evidence, not proof of a Skill defect.
 - Reassess attribution whenever an observation is updated.
 - Apply the update and clearing rules in the reference on every write.
 - Keep observations separate from requirements and regression cases.
+- When the client keeps persistent memory across sessions, such as Pi's `memory_lessons`, treat it as the inbox for corrections made outside this repository. Import matching lessons during consolidation, merge them by behavior and cause, and strip project-internal paths, branch names, hostnames, and identifiers before writing to this public repository.
 
 ## Generalize the Lesson
 
@@ -75,7 +76,7 @@ Reject principles that merely restate the incident, duplicate model defaults, gr
 
 Report the observed problem, attribution, generalized principle, affected scope, and one representative counterexample. State the proposed next action.
 
-Stop before editing Skill source files, adding Skill tests, committing, pushing, or installing Skill changes. Continue corrections already authorized for the active task. Resume Skill changes only after the user confirms or corrects the attribution and generalized principle. Treat silence as no confirmation. Return to this checkpoint when later evidence changes the principle or scope materially.
+Stop before editing Skill source files, adding Skill tests, committing, pushing, or installing Skill changes. Continue corrections already authorized for the active task. Resume Skill changes only after the user confirms or corrects the attribution and generalized principle. Treat silence as no confirmation. Return to this checkpoint when later evidence changes the principle or scope materially. It stops source changes only: correcting the active task and recording an observation remain allowed.
 
 This checkpoint applies to inferred improvements from feedback. Proceed when the user directly requests a specific creation, rename, update, removal, release, or installation and its scope is clear.
 

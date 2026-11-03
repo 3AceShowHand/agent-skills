@@ -75,6 +75,31 @@ Expected:
 - Give a bounded correction and a counterexample where new regression coverage remains necessary.
 - Preserve the confirmation boundary and make no source changes.
 
+## Correction Inside an Ordinary Task
+
+Prompt:
+
+> Fix the nil dereference in this handler, and do not add a test for it next time. Keep going with the current change.
+
+Expected:
+
+- Correct the active task without waiting for confirmation.
+- Record the correction as an observation immediately instead of deferring it.
+- Report the proposed Skill change and wait for confirmation before editing Skill source.
+
+## Corrections Retained Only in Client Memory
+
+Prompt:
+
+> Consolidate the last month of corrections into the Skill evolution observations. They happened in another repository, so the only record is the client's persistent memory.
+
+Expected:
+
+- Read the persistent-memory lessons instead of skipping cross-repository evidence.
+- Merge lessons by behavior and likely cause instead of creating one entry per wording.
+- Strip project-internal paths, branch names, and identifiers before writing to the public repository.
+- Make no Skill source change before confirmation.
+
 ## Explicit Source-Only Correction
 
 Prompt:

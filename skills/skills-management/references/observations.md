@@ -11,6 +11,7 @@ This journal retains active, user-confirmed evidence that may become relevant wh
 - For a similar error, update the existing entry: increment `Occurrences`, update `Last observed`, add only the minimum new evidence, and reassess the attribution.
 - Judge similarity from behavior, impact, and likely cause. Exact wording, task, and identifier matches are unnecessary.
 - Treat recurrence as a reason to investigate instruction ambiguity or overload. Counts trigger investigation, not a Skill-defect conclusion.
+- When a correction happened outside this repository and survives only in the client's persistent memory, import the matching lesson during consolidation instead of waiting for a repeat. Merge it by behavior and likely cause, and remove project-internal paths, branch names, hostnames, and identifiers first; this repository is public.
 
 ### Escalate
 
