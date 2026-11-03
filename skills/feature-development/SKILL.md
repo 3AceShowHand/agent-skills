@@ -53,6 +53,7 @@ Proceed when the risk is acceptable. Pause only when a material risk cannot be r
   3. Package-wide, multi-package, full-suite, race, or failpoint-enabled targets only when the user explicitly requests that scope.
 - The existence of a broader repository test target does not justify running it.
 - Add or update tests only when changed behavior needs regression coverage; do not add or run tests ritualistically after every edit.
+- Read [unit test design](./references/unit-test-design.md) before adding, extending, or renaming a unit test.
 - Use existing project test patterns and commands from repository instructions.
 - Do not introduce a new test framework solely for one change unless the user requests it or the existing project decision supports it.
 - Do not require a ritualized test order. Require evidence strong enough for the change's risk.

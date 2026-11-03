@@ -19,11 +19,7 @@
 
 ## Test Quality
 
-- Clear name that describes behavior.
-- Minimal setup.
-- Stable assertions.
-- No sleeps unless time is explicitly controlled or bounded.
-- No dependency on unrelated external services unless the test is intentionally integration-level.
+Naming, structure, assertions, reuse, and determinism are owned by `feature-development` in `references/unit-test-design.md`. Apply those rules when writing the case.
 
 ## When A Test Is Not Feasible
 
