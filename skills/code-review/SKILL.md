@@ -59,8 +59,15 @@ Supported script options:
 10. Report findings first, followed by scope, evidence, unresolved questions, and unverified areas.
 11. When actionable findings remain and the user or repository has authorized a durable review artifact, create or update a Markdown review task list through `write-great-document`. Treat unresolved findings as unfinished remediation work after the review ends, and represent every unresolved finding as a top-level `- [ ]` task. Group tasks by severity and include evidence, required outcomes, and verification. Keep the chat report findings-first and link the artifact.
 
+## Correctness Gates
+
+- Establish the gate result for the change before judging quality. A failed or unverified gate blocks approval regardless of how well the code reads.
+- Name the evidence for each gate: the failing input, the error path, the interleaving, the affected consumer, or the test that fails without the change.
+- Report a gate as unverified when the evidence is missing. Reading alone does not pass a gate whose claim is about runtime behavior.
+
 ## Code Quality Review
 
+- Grade these as `good`, `fair`, or `poor` through `references/quality-rubric.md`. A grade never blocks approval by itself, and a failing grade must come with one concrete improvement.
 - Reject behavior or cleanup outside the requested scope.
 - Reject speculative configuration, extension points, fallback paths, and abstractions that do not serve a current requirement.
 - Reject a new dependency when the standard library or an existing dependency already solves the need clearly, or when its maintenance, license, security, build, or runtime cost is not justified.
@@ -83,7 +90,9 @@ Use `code-review` to preserve the common scope and final findings. Load speciali
 
 ## References
 
-- Read `references/review-rubric.md` for severity and finding structure.
+- Read `references/review-rubric.md` for severity, verdict, and finding structure.
+- Read `references/correctness-gates.md` for the binary gates and the observation that falsifies each one.
+- Read `references/quality-rubric.md` for the graded quality areas and their naming, style, complexity, and interaction rules.
 - Use `software-design` when reviewing interfaces, module design, or complex ownership boundaries; return its design findings through this Skill's severity and reporting structure.
 
 ## Report

@@ -80,6 +80,7 @@ Use this Skill to coordinate the remaining feature work when a specialist risk i
 - Do not replace project-specific build, test, lint, code generation, release, or done criteria.
 - Do not make small local changes pay the cost of a full feature workflow.
 - Do not claim a check passed unless it ran.
+- Do not report completion while a gate in `code-review`'s `references/correctness-gates.md` is unmet or unverified for the changed behavior.
 
 ## Report
 
