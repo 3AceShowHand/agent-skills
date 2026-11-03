@@ -66,22 +66,46 @@ On every update, merge overlapping entries, remove cleared entries, and trim evi
 
 ## Active Observations
 
-### redundant-expression-causing-language-error
+### unrequested-format-and-lint-runs
 
-- Status: `escalated`
-- Affected Skills: `clarity`
-- First observed: 2026-08-07
-- Last observed: 2026-08-19
-- Occurrences: 4
-- Pattern: User-facing prose repeats an established meaning, adds process narration without a useful result, or uses a reject-X/assert-Y frame where direct claims would be clearer.
+- Status: `investigating`
+- Affected Skills: `feature-development`, `diagnose-and-fix-bugs`
+- First observed: 2026-11-03
+- Last observed: 2026-11-03
+- Occurrences: 2
+- Pattern: The agent runs formatting or static-analysis commands such as `gofmt -l`, `go vet`, or `golangci-lint` after a code change, or inside implementation steps, beyond the verification the user requested.
 - Evidence:
-  - After stating “最有价值的结论是……”, the response added “这个判断是对的”, repeating the same evaluation.
-  - A progress update added two statements about avoiding repository and format problems; neither helped the user understand the result or next action.
-  - A technical explanation introduced an ownership conclusion through a reject-X/assert-Y frame; the user assigned this construction a zero score and prohibited it from user-visible output.
-  - A document principle stated independence from an output mechanism, then appended its direct implication; the user identified the trailing explanation as redundant.
-- Attribution: Confirmed Skill defect. `clarity` conditionally permitted contrast while an example discouraged one instance, leaving a permissive rule that repeatedly allowed low-value framing. The confirmed correction replaces that ambiguity with a hard structural gate.
-- Similarity boundary: Update for repeated conclusions, duplicate evaluation, non-contributing process explanation, or adversative correction framing. Exclude deliberate repetition needed to preserve a safety condition; express that repetition through direct statements.
-- Next review trigger: Validate the hard gate against direct explanations, material distinctions, and source paraphrases. Clear this observation after the source change is released to its intended agents.
+  - After a one-line guard change the agent ran formatting and lint commands; the user had asked only for the guard and its own verification.
+  - During implementation the agent ran slow lint and format targets; the user required those to wait for one closing `make check` at the end of the task.
+- Attribution: Under investigation. `feature-development` and `diagnose-and-fix-bugs` bound the scope of tests and verification selection but do not say when formatting and static-analysis commands may run. Both corrections were recorded in client memory before this import, so the original session dates are unknown.
+- Similarity boundary: Update when format or static-analysis commands run without a user request, repository done criteria, or a closing check. Do not update for targeted compilation, focused tests, or a closing repository check the user asked for.
+- Next review trigger: Another unrequested formatting or static-analysis run, or a missed formatting defect that a closing check would have caught.
+
+### ci-status-polling-after-publish
+
+- Status: `observing`
+- Affected Skills: `github-workflow`
+- First observed: 2026-11-03
+- Last observed: 2026-11-03
+- Occurrences: 1
+- Pattern: After pushing or opening a pull request the agent keeps polling CI, such as repeated `gh pr checks` calls or waiting for jobs to finish, when the user only wants the completed action reported.
+- Evidence: The user prohibited tracking CI unless explicitly asked to monitor it, and required a direct report once the requested action finished. Recorded in client memory before this import, so the original session date is unknown.
+- Attribution: `github-workflow` requires reading checks and blocking status back after publishing but does not separate a single read-back from continued polling.
+- Similarity boundary: Update when polling continues without a monitoring request. Do not update for one read-back after publishing, a status check the user asked for, or inspecting a failed gate needed to explain a result.
+- Next review trigger: Another unrequested polling loop, or a read-back instruction again interpreted as waiting for checks.
+
+### implementation-options-offered-despite-repo-pattern
+
+- Status: `observing`
+- Affected Skills: `feature-development`, `software-design`
+- First observed: 2026-11-03
+- Last observed: 2026-11-03
+- Occurrences: 1
+- Pattern: The agent presents alternative approaches for the user to choose when the repository already has an established pattern, instead of adopting it and finishing the change.
+- Evidence: The user required adopting the existing parameter convention, sibling-directory practice, or existing SDK capability directly, and reserving questions for irreversible operations or genuine business judgment. Recorded in client memory before this import, so the original session date is unknown.
+- Attribution: `software-design` calls for comparing material alternatives and `feature-development` requires a complete plan before starting. Neither states that an established repository pattern removes the alternative, leaving a choice where none is needed.
+- Similarity boundary: Update when an unnecessary choice is offered despite an existing convention. Do not update when the alternatives genuinely differ in correctness, cost, compatibility, or business intent, or when the operation is irreversible.
+- Next review trigger: Another avoidable choice, or the opposite failure where the agent adopts a high-risk approach without asking.
 
 ### evolve-analysis-reported-as-skill-list
 
