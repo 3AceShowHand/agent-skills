@@ -2,10 +2,12 @@
 
 ## Test Value
 
+- Identify the uncovered behavior and the invariant's owner. Reuse existing coverage when it already protects the changed behavior.
 - The test fails before the fix and passes after it when feasible.
 - The test checks externally meaningful behavior.
 - The test is deterministic or controls timing, randomness, and concurrency.
 - The test uses a seam that reproduces the real bug pattern, not a shallower approximation that could pass while the original bug remains.
+- A change limited to operational logging does not need a new unit test for log messages, levels, or fields. Review the log call and use existing checks.
 
 ## Case Selection
 

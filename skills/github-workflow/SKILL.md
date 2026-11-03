@@ -34,9 +34,11 @@ description: Use when creating, updating, linking, or submitting GitHub issues a
 
 - Link the issue using the exact syntax required by the repository, such as `Issue Number: close #123`.
 - When the linked issue already explains the problem, do not repeat that description in the pull request's problem section.
-- Describe the implemented changes as concise bullet points when there is more than one change or verification addition.
+- In `What is changed and how it works?`, use short bullets stating only concrete changes. Include mechanism details only when explicitly requested.
 - Report tests that actually ran. Prefer portable commands that reviewers can understand; omit local cache directories, temporary paths, machine-specific toolchain paths, and unrelated failed checks unless they materially affect confidence.
-- Answer compatibility, performance, documentation, and release-note sections according to the actual change. Remove template instructions and inapplicable checklist items.
+- Answer yes/no template questions with only `Yes` or `No`, preserving answers explicitly supplied by the user.
+- Set release-note content to `None` for non-bug issues. For bug issues, follow the repository's release-note requirements.
+- Remove template instructions and inapplicable checklist items.
 
 ## Publish Markdown Safely
 

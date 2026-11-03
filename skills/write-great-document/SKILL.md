@@ -7,7 +7,7 @@ description: Create, organize, or update local Markdown documents such as requir
 
 ## Structure Standards
 
-Apply these standards before presenting the first draft:
+Apply these standards to the first draft and subsequent updates:
 
 - Make the document's purpose apparent from its title and opening.
 - Organize the document logically. Order sections for the reader and keep each paragraph focused on one topic.
@@ -23,14 +23,14 @@ Apply these standards before presenting the first draft:
 
 ## Writing Process
 
-Complete this process internally before presenting the first draft. Do not include the process itself in the document:
+Complete this process internally before delivering a new or updated document. Do not include the process itself in the document:
 
 1. Identify the document's purpose, audience, and deliverable format.
 2. Separate facts, decisions, assumptions, unknowns, and recommendations.
 3. Select only material that supports the document's purpose.
 4. Decide the reading order and where each piece of information belongs.
 5. Keep one topic per paragraph and one canonical location for each piece of information.
-6. Read the headings alone and verify that they form an accurate, non-redundant outline of the document.
+6. Read the headings alone and verify that they form an accurate, non-redundant outline of the document. After structural edits, reread the changed section boundaries and check heading hierarchy, surviving content, and references to removed sections.
 7. Check the document structure against this Skill and its prose against `clarity`.
 8. Apply the pre-delivery quality gate and deliver only after the document passes.
 

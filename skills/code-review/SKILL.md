@@ -52,7 +52,7 @@ Supported script options:
 3. Summarize what changed and build a guided reading path from entry points, authoritative definitions, state owners, public boundaries, and tests. Use `codebase-navigation` when structural tracing is substantial.
 4. Review correctness and invariants before maintainability. Follow unclear definitions and call paths instead of guessing from names.
 5. Review scope, simplicity, and dependency changes. Use `software-design` when module boundaries, interfaces, information hiding, ownership, lifecycle, concurrency, resources, or competing design tradeoffs are material.
-6. Review tests for changed behavior, boundaries, failure paths, regression coverage, and signal quality. Flag excessive tests when they increase maintenance without protecting behavior.
+6. Review tests for changed behavior, boundaries, failure paths, regression coverage, and signal quality. Assign assertions to the module that owns the invariant; caller tests cover their own contracts, including lifecycle responsibilities they actually own. Request additional caller coverage only for a demonstrated contract gap; receiving a borrowed helper alone provides no evidence of one. Flag repeated helper assertions in callers when they add no independent coverage.
 7. Check performance hygiene for changed runtime paths: algorithmic complexity, expected scale, repeated IO, avoidable allocation or copying, blocking, and contention. Require measurement only when making a performance claim.
 8. Route specialist risks when deeper analysis is needed.
 9. Verify each candidate finding against the actual code or design, remove speculative or style-only comments, and order the remaining findings by severity.

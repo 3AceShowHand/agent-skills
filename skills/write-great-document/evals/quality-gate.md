@@ -81,3 +81,16 @@ Expected:
 
 - The agent identifies the missing decisions that prevent a reliable final document.
 - The agent requests only the necessary input instead of inventing requirements or returning the document as complete.
+
+## Structural Deletion Preserves Adjacent Sections
+
+Prompt:
+
+> Remove the completed P1 section from this active review worklist, together with its summary and execution-order references. Preserve the P2 section and the separate historical execution record.
+
+Expected:
+
+- Remove the completed item and references that serve only it.
+- Preserve the P2 content and the explicitly retained execution record.
+- Reread edited boundaries and verify that headings remain correctly nested without duplicate P2 sections.
+- Complete verification from document inspection; application builds and tests add no relevant evidence.

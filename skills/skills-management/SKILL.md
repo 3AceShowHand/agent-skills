@@ -13,7 +13,7 @@ Manage the complete Skill lifecycle while keeping source, release, and installed
 - Update: identify the source instruction and the smallest behavior change.
 - Rename: move the source directory and update frontmatter, UI metadata, catalogs, routing cases, references, validators, and installation state.
 - Evolve from feedback: trigger on the first explicit rejection or correction of your result, correct the active task, and attribute the failure before changing durable guidance. A new preference given before you produce a result is ordinary task guidance.
-- Release or install: validate, commit, push, and install only the steps the user authorized.
+- Release or install: complete the source repository's release sequence. Honor explicit review-only, source-only, and preview-only requests.
 
 Do not create a tentative Skill directory while its name is still under discussion. A user-specified final name and scope are direct confirmation for that requested change.
 
@@ -47,7 +47,7 @@ Identify the Skills that governed the criticized result, process, or behavior. T
 - Task-specific exception: the feedback depends on one project, user, or temporary constraint.
 - Model variance: independent runs disagree without a stable instruction gap.
 
-Advance routing and Skill defects. Investigate repeated execution defects for ambiguous or overloaded instructions. Do not modify a Skill to encode task-specific exceptions or unexplained model variance.
+Advance routing and Skill defects. Before closing a repeated failure as an execution defect, trace how the existing instruction was bypassed, check competing instructions and missing verification, and identify evidence that supports the attribution. Propose a focused correction when this exposes a reusable gap. Do not modify a Skill to encode task-specific exceptions or unexplained model variance.
 
 ## Maintain Observations
 
@@ -108,17 +108,25 @@ uv run --with pyyaml python scripts/validate_skills.py
 
 ## Release
 
-Follow the repository's authorized release sequence. Commit, push, install, remove, or update installed Skills only when the user explicitly requests those operations.
+For updates to `3AceShowHand/agent-skills`, complete this standing delivery sequence unless the user explicitly limits the task:
 
-- Review the staged diff before committing, especially when shared files have unrelated worktree changes.
-- Install and remove Skills only through the `skills` command. Do not use installer Python scripts or manually copy files into agent directories.
-- Install from the validated source with a command such as:
+1. Confirm the changed behavior and run the required repository validation.
+2. Review the staged diff and commit only the scoped changes. Use partial staging when a file contains unrelated work.
+3. Push to the authorized branch and verify that its remote SHA contains the verified commit.
+4. Install the changed Skills through the `skills` CLI from that published branch, tag, or revision.
+5. Verify the installed files against the published commit and report the commit, pushed ref, installation source, and target agents.
+
+A failed validation, commit, or push blocks installation. Report the failed step and preserve the work. A local-path installation is a development preview that requires an explicit preview request; it does not complete this repository's delivery sequence.
+
+For an install-only request, use the requested published source without creating unrelated changes. Install and remove Skills only through the `skills` command; do not use installer Python scripts or manually copy files into agent directories.
+
+Select the published ref containing the verified commit, for example:
 
 ```bash
-skills add <source> -g -a codex pi --skill <skill-name> -y
+skills add https://github.com/3AceShowHand/agent-skills/tree/<published-ref> -g -a codex pi --skill <skill-name> -y
 ```
 
 - Treat the successful `skills add` summary and the universal installation path as the installation result. In this environment, `~/.agents/skills/<skill-name>` is available to Codex; an `agents` field that lists only Pi does not prove that Codex is missing the Skill.
 - Re-read the installed Skill through the next-turn Skill catalog when availability matters. Do not create a second copy under `~/.codex/skills` to compensate for the CLI's agent display.
 
-Report the changed Skills, validation evidence, commit and remote state when requested, installation command and target, preserved unrelated changes, and remaining uncertainty.
+Report the changed Skills, behavior and validation evidence, commit and remote state, installation command and target, preserved unrelated changes, and remaining uncertainty. Distinguish an explicitly scoped draft or preview from a completed release.
