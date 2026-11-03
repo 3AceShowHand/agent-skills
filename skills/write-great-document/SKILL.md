@@ -15,6 +15,7 @@ Apply these standards to the first draft and subsequent updates:
 - Make headings identify the section's actual subject and distinguish it from neighboring sections. Avoid generic workflow labels such as `Current Stage` when the section contains more specific material such as requirement inputs and open questions.
 - Keep each fact, decision, assumption, unknown, and recommendation in one canonical location.
 - When the user removes a topic from scope, delete its sections, links, comparisons, caveats, deferred-work notes, and exclusion statements. Do not preserve the removed topic by explaining that it is unnecessary, unverified, fixed, deferred, or outside the current scope. Retain only facts that still serve another explicitly requested part of the document.
+- When a finding, issue, or decision is resolved, delete its section instead of labeling it implemented or fixed. Remove its rows from status tables and priority lists, its remaining-work entries, and its fix and verification records, keeping no work log.
 - Follow Markdown conventions. Use correct syntax for headings, lists, code blocks, and links.
 - Present multiple similar, same-level elements as a list instead of joining them inline with commas, slashes, or conjunctions. This includes metadata fields: keep a single value inline, but when fields such as `Related documents`, `Related links`, `Sources`, or `Constraints` contain multiple values, put the label on its own line and list each value as a separate bullet.
 - Across every document type, use a table only when fields are stable, cells are short, and horizontal comparison is materially faster. Align table columns in the Markdown source. Use prose or lists when cells would contain causal explanations, multiple sentences, recommendations, tradeoffs, or steps.
@@ -113,9 +114,9 @@ Related documents:
 - Keep one-value metadata fields inline. For multi-value metadata, keep the field label above a bullet list as shown in the template.
 - Update the `Last updated` date whenever the document changes. Do not maintain a change summary.
 - Use `Background` to explain why the document exists and what problem it addresses. Do not repeat the metadata.
+- Keep `Background` to that reason and problem in at most two short paragraphs. Omit navigation, numbering or priority conventions, term definitions, implementation status, and process history; define a term where it is first used and keep status or remaining work in the section that owns it.
 - Treat metadata as the canonical location for status, scope, audience, and similar facts. Repeat one in the body only when the body explains a consequence or detail that the metadata cannot express.
 - When relevant, make the opening distinguish what is already decided, what remains unknown, why the unknown matters, and what the document covers. Describe deferred work as a current boundary with a condition for revisiting it; do not make it sound permanently out of scope.
-- Present every unresolved item in `Background` as a short bullet list, regardless of count. Introduce the list with one sentence, explain consequences afterward, and keep the items at category level when later sections contain the details.
 
 ## Document Types
 

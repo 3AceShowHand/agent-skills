@@ -94,3 +94,28 @@ Expected:
 - Preserve the P2 content and the explicitly retained execution record.
 - Reread edited boundaries and verify that headings remain correctly nested without duplicate P2 sections.
 - Complete verification from document inspection; application builds and tests add no relevant evidence.
+
+## Review Document Background Stays Short
+
+Prompt:
+
+> Draft the `Background` for a review document that already has one section per confirmed problem, a priority table with a status column, and a body that defines each progress term where it is used. The draft explains how the sections are ordered, defines three progress terms, and notes that the original numbering is preserved.
+
+Expected:
+
+- `Background` states why the document exists and which problem it addresses, in at most two short paragraphs.
+- The ordering explanation, the term definitions, and the numbering note are removed, not paraphrased into the section.
+- Status and remaining work stay in the section that owns them, and metadata is not repeated.
+
+## Resolved Findings Leave the Document
+
+Prompt:
+
+> A security findings document has one section per finding plus a priority table with a status column. Two findings are implemented and verified; their sections hold triggering conditions, fix descriptions, and verification records. The shared fix that covered them also appears in a shared section and in the opening sentence.
+
+Expected:
+
+- Delete the two resolved sections instead of relabeling them implemented or fixed.
+- Remove their rows from the priority table and renumber the remaining order.
+- Remove their triggering conditions, fix descriptions, verification records, and opening or status references, keeping no work log.
+- Keep shared material only where it still serves a remaining finding.
