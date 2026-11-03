@@ -166,6 +166,8 @@ Reuse stable source identifiers when available. Otherwise, use a heading, paragr
 Read [Task List Rules](./references/task-lists.md) before creating or updating a task list.
 
 - Treat a review guide, checklist, plan, or queue that drives unfinished review work as a task list. For code review worklists, follow the priority-based template in the reference. Preserve a completed review report as an evidence-backed findings report.
+- Judge by purpose as well as format: a findings or audit document that still drives fixes is a task list even when it uses prose sections instead of `- [ ]` items. Organize it by unresolved item, and give each the action that remains.
+- Keep no process record: omit executed-command transcripts, temporary overlay or output paths, test and rollout logs, fix confirmations, and dated verification history. State an unverified condition as a limitation attached to the remaining work.
 - Keep the document focused on unfinished work. Use the filename and level-one heading to convey purpose; omit metadata, `Background`, and the last-updated date.
 - Give the complete known plan in the first useful draft. Sequential execution controls order, not how much of the plan the user can see.
 - Use headings when they make priorities, sources, or topics easier to scan. Start each actionable task with `- [ ]` and put supporting detail in an indented list.

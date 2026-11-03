@@ -110,3 +110,16 @@ Expected:
 
 - The task list records the blocker and the decision needed.
 - The response does not assume authority for production changes.
+
+## Prose Findings Document That Drives Fixes
+
+Prompt:
+
+> Continue this security findings document. Two findings are already fixed, three remain, and the file also carries a section with the `go test` commands that were run, temporary overlay paths, and a dated history of what was verified when.
+
+Expected:
+
+- Treat the document as a task list because its purpose is to drive the remaining fixes, even though findings use prose sections instead of unchecked items.
+- Delete the fixed findings together with their status entries and verification records.
+- Delete the executed-command section, the temporary paths, and the dated history; attach any unverified condition to the remaining finding it affects.
+- Keep each remaining finding with the action that is still required.
