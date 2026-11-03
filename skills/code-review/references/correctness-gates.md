@@ -16,14 +16,12 @@ Correctness is binary. Each gate below either passes with evidence or fails; a f
 
 ## Fallbacks and hidden failures
 
-A fallback is a second behavior for a state the code should not have reached. Answer these before accepting one; a failed answer on the first three blocks approval.
+A fallback is a second behavior for a state the code should not have reached.
 
 - Can internal code produce the state this branch handles? If it can, fix the producer instead of handling the state here.
-- Who observes this branch firing? Without a metric, a log with a stable identifier, or a named owner, it is a silent degradation and does not pass.
-- Is the failure a capability limit or a data error? They take different responses, and one flag must not represent both.
-- A parameter check at the system boundary is not a fallback. Re-validating an already-typed value inside an internal function is a design defect, not a safety net.
+- A check at the system boundary is not a fallback; validation stays there, once.
 
-Falsified by naming an internal call path that reaches the branch, or by showing the branch firing with nothing recorded.
+Falsified by naming an internal call path that reaches the branch.
 
 ## Resource and lifecycle
 

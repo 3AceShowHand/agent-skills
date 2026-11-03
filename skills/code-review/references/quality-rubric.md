@@ -35,8 +35,6 @@ Quality is graded, not gating. Grade each area as `good`, `fair`, or `poor`, wit
 - Shared state has a named owner and one place that mutates it.
 - Failure responsibility across components is defined: who retries, who reports, who degrades.
 - One concept keeps one name across the whole change.
-- A compatibility fallback or legacy path states when it is removed and who owns the removal. No exit condition grades `poor`.
-- A flag carries one meaning. A boolean that means both a predicted limit and a past failure grades `poor`, because no reader can reason from it.
 
 ## Comments and tests
 
