@@ -14,6 +14,17 @@ Correctness is binary. Each gate below either passes with evidence or fails; a f
 - A failed operation leaves no partially applied state, and a retry after failure starts from a defined state.
 - Falsified by tracing one failing dependency and showing the state that remains.
 
+## Fallbacks and hidden failures
+
+A fallback is a second behavior for a state the code should not have reached. Answer these before accepting one; a failed answer on the first three blocks approval.
+
+- Can internal code produce the state this branch handles? If it can, fix the producer instead of handling the state here.
+- Who observes this branch firing? Without a metric, a log with a stable identifier, or a named owner, it is a silent degradation and does not pass.
+- Is the failure a capability limit or a data error? They take different responses, and one flag must not represent both.
+- A parameter check at the system boundary is not a fallback. Re-validating an already-typed value inside an internal function is a design defect, not a safety net.
+
+Falsified by naming an internal call path that reaches the branch, or by showing the branch firing with nothing recorded.
+
 ## Resource and lifecycle
 
 - Every acquisition (`file`, `conn`, `token`, `lock`, `goroutine`, `channel`) pairs with a release on all paths, including error paths.

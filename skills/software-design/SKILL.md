@@ -36,7 +36,7 @@ For a straightforward implementation that follows an established local pattern, 
 4. Assign each decision and behavior to an owning module. Identify what callers truly need to know and what the owner can hide.
 5. Design the smallest useful interfaces. Prefer deep modules whose simple interfaces hide meaningful implementation complexity.
 6. Define error semantics, cleanup, cancellation, concurrency, resource bounds, and recovery only to the depth required by realistic failures.
-7. Compare alternatives only when their tradeoffs are material. Reject speculative extensibility, configuration, fallback paths, and abstractions.
+7. Compare alternatives only when their tradeoffs are material. Reject speculative extensibility, configuration, fallback paths, and abstractions. When a fallback is genuinely required, define why internal code cannot produce the handled state, who observes it firing, how a capability limit differs from a data error, and when it is removed.
 8. Route compatibility, migration, performance, distributed reliability, observability, or security depth to the applicable specialist Skill when it can change the design.
 9. Define behavior-based verification, important boundaries and failure cases, and any rollout or containment needed to validate the design safely.
 10. Check the proposed design with `references/design-checklist.md`, then return the decision, rationale, affected boundaries, implementation consequences, and unresolved risks.
