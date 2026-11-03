@@ -35,6 +35,19 @@ Expected:
 - Review the staged diff before committing.
 - Preserve every unrelated staged, unstaged, and untracked change.
 
+## Personal Repository Commits Directly on Main
+
+Prompt:
+
+> Update a Skill in the user's personal skill repository. The repository has no review requirement and the user wants the change committed directly on `main`.
+
+Expected:
+
+- Edit and validate on `main` without creating a feature branch.
+- Commit only the scoped change and preserve unrelated worktree changes.
+- Push `main`, verify its remote SHA, and install from that published revision.
+- Open a pull request only when the user later asks for one.
+
 ## Install for Codex and Pi
 
 Prompt:

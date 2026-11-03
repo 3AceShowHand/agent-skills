@@ -20,6 +20,7 @@ Do not create a tentative Skill directory while its name is still under discussi
 ## Work From the Source
 
 - Work in the source repository, never an installed copy or agent link. This Skill collection is maintained at `https://github.com/3AceShowHand/agent-skills` and normally checked out at `~/workspace/agent-skills`.
+- Treat this repository as the user's personal repository: commit and push Skill changes directly on `main`, and open a pull request only when the user asks for one.
 - Read repository instructions and inspect the branch, remotes, staged changes, unstaged changes, and untracked files before editing.
 - Preserve existing work. Limit edits and staging to the requested Skill change, including partial staging when a shared catalog or routing file already contains unrelated modifications.
 - Use `skill-creator` for Skill structure and metadata rules. Reuse existing references and tests when they already own the behavior.
@@ -112,7 +113,7 @@ For updates to `3AceShowHand/agent-skills`, complete this standing delivery sequ
 
 1. Confirm the changed behavior and run the required repository validation.
 2. Review the staged diff and commit only the scoped changes. Use partial staging when a file contains unrelated work.
-3. Push to the authorized branch and verify that its remote SHA contains the verified commit.
+3. Push `main` for this repository, or the authorized branch elsewhere, and verify that its remote SHA contains the verified commit.
 4. Install the changed Skills through the `skills` CLI from that published branch, tag, or revision.
 5. Verify the installed files against the published commit and report the commit, pushed ref, installation source, and target agents.
 

@@ -12,6 +12,7 @@ description: Use when creating, updating, linking, or submitting GitHub issues a
 - Preserve the roles of the two artifacts: the issue owns the problem; the pull request owns the implemented change and its verification.
 - Publish only information appropriate for the target repository's visibility. Treat links, identifiers, logs, and screenshots from internal systems as non-public unless the user explicitly authorizes publication.
 - Preserve unrelated local and remote state. Commit and push only the requested change and only with explicit authorization.
+- Follow the repository's review policy. Commit directly to the base branch when the repository or the user authorizes it, such as the user's personal repository; open a pull request when review is required or requested.
 
 ## Workflow
 

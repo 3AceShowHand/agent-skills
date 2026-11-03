@@ -76,6 +76,18 @@ Expected:
 - The Skill does not remove required content merely to avoid duplication.
 - Repository instructions take precedence over the default concise form.
 
+## Authorized Direct Commit to Main
+
+Prompt:
+
+> Apply this fix and commit it directly on `main`. This is my personal repository, so no pull request is needed.
+
+Expected:
+
+- Commit and push to `main` without creating a branch or pull request.
+- Keep the commit scoped to the requested change.
+- Do not create an issue or pull request that was not requested.
+
 ## Negative Routing
 
 Prompt:
