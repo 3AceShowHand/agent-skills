@@ -23,7 +23,7 @@ description: Use when diagnosing or fixing functional bugs, flaky tests, regress
 6. Form falsifiable hypotheses. For hard bugs, rank 3–5 and state what observation would confirm or reject each one.
 7. Test one variable at a time. Prefer debugger inspection or targeted, uniquely tagged logs; do not log everything.
 8. If evidence shows that performance is the dominant problem rather than functional correctness, hand the reproduction, source path, and evidence to `performance-engineering` before changing code.
-9. Identify behavior changed by this fix that existing checks leave uncovered before adding a regression test. Add focused coverage at the real bug seam for a meaningful gap within the requested fix.
+9. Identify behavior changed by this fix that existing checks leave uncovered before adding a regression test. Add focused coverage at the real bug seam for a meaningful gap within the requested fix. For operational logging changes, inspect the log call and run existing package checks; do not add tests solely for log messages, levels, or fields.
 10. Apply the smallest root-cause fix. Avoid unrelated cleanup.
 11. Select verification from the current diff and unresolved risks. For mechanical cleanup such as a local rename or standalone test deletion, inspect bindings, remaining references, imports, and the diff statically. Finish once that evidence resolves the affected behavior; execute compilation or tests only for a specific uncovered failure mode or a mandatory repository check. Repeat earlier commands only when new changes invalidate their evidence.
 12. Remove temporary instrumentation and harnesses. Record the supported root cause, remaining uncertainty, and any architectural gap that prevented good coverage.
