@@ -13,6 +13,7 @@ Apply these standards to the first draft and subsequent updates:
 - Organize the document logically. Order sections for the reader and keep each paragraph focused on one topic.
 - Use prose for settled claims and causal chains. Present unresolved items as a short list regardless of their count; keep the items at the same logical level and in parallel grammatical form.
 - Make headings identify the section's actual subject and distinguish it from neighboring sections. Avoid generic workflow labels such as `Current Stage` when the section contains more specific material such as requirement inputs and open questions.
+- Name components, fields, and states exactly as the code, configuration, or API names them, or describe them in plain words. Do not coin labels, metaphors, or abbreviations that the sources do not use.
 - Keep each fact, decision, assumption, unknown, and recommendation in one canonical location.
 - When the user removes a topic from scope, delete its sections, links, comparisons, caveats, deferred-work notes, and exclusion statements. Do not preserve the removed topic by explaining that it is unnecessary, unverified, fixed, deferred, or outside the current scope. Retain only facts that still serve another explicitly requested part of the document.
 - When a finding, issue, or decision is resolved, delete its section instead of labeling it implemented or fixed. Remove its rows from status tables and priority lists, its remaining-work entries, and its fix and verification records, keeping no work log.
@@ -48,7 +49,7 @@ Score each dimension from 0 to 10, using whole points, for a total of 100:
 5. **Structure:** The reading order is logical, headings describe their contents, and each claim has one canonical location.
 6. **Clarity:** Sentences are direct, paragraphs stay focused, and the reader can understand the document without reconstructing its meaning.
 7. **Concision:** The document contains no repeated conclusion, duplicated background, empty transition, or detail that does not serve its purpose.
-8. **Terminology:** New or specialized terms are explained when first used and retain one meaning throughout the document.
+8. **Terminology:** Components, fields, and states use the names that exist in the code, configuration, or API, or plain words. A coined label is a defect; a necessary specialized term is explained once and keeps one meaning.
 9. **Format:** Markdown, headings, lists, links, spacing, and tables follow the user's requirements and repository conventions. Tables contain only short, stable fields suited to horizontal comparison.
 10. **Document-type fitness:** The document works as the requested analysis, requirements, design, or task list and includes the corresponding decisions, acceptance criteria, verification, or completion conditions when applicable.
 
@@ -69,6 +70,7 @@ A total score cannot override a delivery blocker. Fix every blocker before deliv
 - an unresolved item presented as settled, or a settled item retained as unresolved work;
 - an inventory of unverified conditions, deployment caveats, or risks that no decision depends on;
 - a material logical gap, contradiction, or inconsistent rule;
+- a coined label where the code, configuration, or API has a name or plain words would do;
 - an undefined or inconsistently used core term;
 - material or repeated redundancy;
 - a table containing long-form prose, causal analysis, tradeoffs, recommendations, or procedural steps;

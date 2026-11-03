@@ -131,3 +131,15 @@ Expected:
 - Delete the limitation section instead of restating it more concisely.
 - Keep a condition only where a specific remaining action depends on it, inside that finding.
 - Add no generic deployment, environment, or end-to-end caveats.
+
+## Coined Labels Instead of Code Names
+
+Prompt:
+
+> Explain how the consumer advances its checkpoint. The code names `head`, `watermark`, `pendingDDL`, and `PostFlush`; the draft instead introduces "表组队首聚合", "输入确认水位", and "转换滞留窗口" as new labels.
+
+Expected:
+
+- Use `head`, `watermark`, `pendingDDL`, and `PostFlush` as the code names them, or describe the behavior in plain words.
+- Remove the coined labels instead of defining them at first use.
+- Keep one name per thing throughout the document.
