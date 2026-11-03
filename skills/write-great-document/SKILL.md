@@ -27,7 +27,7 @@ Apply these standards to the first draft and subsequent updates:
 Complete this process internally before delivering a new or updated document. Do not include the process itself in the document:
 
 1. Identify the document's purpose, audience, and deliverable format.
-2. Separate facts, decisions, assumptions, unknowns, and recommendations.
+2. Separate facts, decisions, assumptions, and recommendations, and record an unknown only where a pending decision depends on it.
 3. Select only material that supports the document's purpose.
 4. Decide the reading order and where each piece of information belongs.
 5. Keep one topic per paragraph and one canonical location for each piece of information.
@@ -67,6 +67,7 @@ A total score cannot override a delivery blocker. Fix every blocker before deliv
 - a user-removed topic retained as an exclusion, non-goal, caveat, comparison, deferred item, or related link;
 - an unsupported fact, decision, or requirement presented as established;
 - an unresolved item presented as settled, or a settled item retained as unresolved work;
+- an inventory of unverified conditions, deployment caveats, or risks that no decision depends on;
 - a material logical gap, contradiction, or inconsistent rule;
 - an undefined or inconsistently used core term;
 - material or repeated redundancy;
@@ -142,8 +143,8 @@ Reuse stable source identifiers when available. Otherwise, use a heading, paragr
 - Explain the relevant current state, the causes or conditions that produced it, and its impact on requirements or goals.
 - Organize sections around the domain subjects readers need to understand. Do not add a generic status or stage section merely to repeat metadata, restate `Background`, or preview questions covered in detail later.
 - Remove an opening inventory section instead of merely renaming it when its unique content fits in `Background` and the rest repeats metadata or later detail.
-- If readers need a short inventory of knowns and unknowns, name the section after that content and keep each detailed item in one canonical location.
-- Include only what readers need to understand the problem. When the cause is uncertain, distinguish known conditions from unknowns.
+- Record an unknown only where a pending decision depends on it, and keep it with that decision. Delete inventories of unverified conditions, deployment caveats, and risks that restate ordinary due diligence.
+- Include only what readers need to understand the problem. When the cause is uncertain, state the known conditions and the one unknown that blocks the conclusion.
 - Do not require a proposed solution.
 
 ### Requirements
@@ -167,7 +168,7 @@ Read [Task List Rules](./references/task-lists.md) before creating or updating a
 
 - Treat a review guide, checklist, plan, or queue that drives unfinished review work as a task list. For code review worklists, follow the priority-based template in the reference. Preserve a completed review report as an evidence-backed findings report.
 - Judge by purpose as well as format: a findings or audit document that still drives fixes is a task list even when it uses prose sections instead of `- [ ]` items. Organize it by unresolved item, and give each the action that remains.
-- Keep no process record: omit executed-command transcripts, temporary overlay or output paths, test and rollout logs, fix confirmations, and dated verification history. State an unverified condition as a limitation attached to the remaining work.
+- Keep no process record: omit executed-command transcripts, temporary overlay or output paths, test and rollout logs, fix confirmations, and dated verification history. State an unverified condition only when a remaining action depends on it, with that action.
 - Keep the document focused on unfinished work. Use the filename and level-one heading to convey purpose; omit metadata, `Background`, and the last-updated date.
 - Give the complete known plan in the first useful draft. Sequential execution controls order, not how much of the plan the user can see.
 - Use headings when they make priorities, sources, or topics easier to scan. Start each actionable task with `- [ ]` and put supporting detail in an indented list.

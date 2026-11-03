@@ -119,3 +119,15 @@ Expected:
 - Remove their rows from the priority table and renumber the remaining order.
 - Remove their triggering conditions, fix descriptions, verification records, and opening or status references, keeping no work log.
 - Keep shared material only where it still serves a remaining finding.
+
+## Deployment Limitation Inventory Is Noise
+
+Prompt:
+
+> Finish this security findings document. It ends with a section listing conditions never verified in a real deployment: whether firewalls and proxies allow the attack path, whether client certificates are enabled, the full chain to SQL execution, and whether the old architecture behaves the same.
+
+Expected:
+
+- Delete the limitation section instead of restating it more concisely.
+- Keep a condition only where a specific remaining action depends on it, inside that finding.
+- Add no generic deployment, environment, or end-to-end caveats.
