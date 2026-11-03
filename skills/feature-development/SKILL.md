@@ -11,7 +11,7 @@ description: Use when implementing a non-trivial feature or enhancement that req
 - Give the complete known plan before starting. Report progress against that plan instead of turning ordinary implementation steps into new approval points.
 - Prefer the smallest design that expresses current requirements clearly and leaves a reviewable diff. Use `software-design` when module, interface, ownership, lifecycle, concurrency, or shared-abstraction decisions are material.
 - Route a dominant specialist risk to the applicable Skill instead of copying its checklist here.
-- Verification is optional when inspection or a focused static check is sufficient. When runtime verification is necessary, run only specific tests that cover the change. Never run package-wide, multi-package, or full-suite test targets or enable failpoints unless the user explicitly requests them. Report what remains unverified.
+- Verification is optional when inspection or a focused static check is sufficient. Match lint, formatting, and unit tests to the change: skip them when a small change or direct inspection settles correctness, and run them when a broad change or unresolved doubt leaves a real gap, normally once before commit or push. Never run integration, failpoint, package-wide, multi-package, or full-suite test targets unless the user explicitly requests them. Report what remains unverified.
 
 ## Workflow
 

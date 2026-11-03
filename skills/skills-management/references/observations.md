@@ -66,21 +66,6 @@ On every update, merge overlapping entries, remove cleared entries, and trim evi
 
 ## Active Observations
 
-### unrequested-format-and-lint-runs
-
-- Status: `investigating`
-- Affected Skills: `feature-development`, `diagnose-and-fix-bugs`
-- First observed: 2026-11-03
-- Last observed: 2026-11-03
-- Occurrences: 2
-- Pattern: The agent runs formatting or static-analysis commands such as `gofmt -l`, `go vet`, or `golangci-lint` after a code change, or inside implementation steps, beyond the verification the user requested.
-- Evidence:
-  - After a one-line guard change the agent ran formatting and lint commands; the user had asked only for the guard and its own verification.
-  - During implementation the agent ran slow lint and format targets; the user required those to wait for one closing `make check` at the end of the task.
-- Attribution: Under investigation. `feature-development` and `diagnose-and-fix-bugs` bound the scope of tests and verification selection but do not say when formatting and static-analysis commands may run. Both corrections were recorded in client memory before this import, so the original session dates are unknown.
-- Similarity boundary: Update when format or static-analysis commands run without a user request, repository done criteria, or a closing check. Do not update for targeted compilation, focused tests, or a closing repository check the user asked for.
-- Next review trigger: Another unrequested formatting or static-analysis run, or a missed formatting defect that a closing check would have caught.
-
 ### ci-status-polling-after-publish
 
 - Status: `observing`

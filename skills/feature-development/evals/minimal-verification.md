@@ -8,9 +8,21 @@ Prompt:
 
 Expected:
 
-- Make the local edit and use inspection, formatting, or the focused linter when verification is useful.
-- Run no tests because the static checks cover the change.
-- Do not invoke package-wide or broader test targets and do not enable failpoints.
+- Confirm the change by reading the edited statements.
+- The focused linter is optional for a change this small; running it is not required.
+- Run no tests, and do not invoke the package-wide target or enable failpoints.
+
+## Lint Before Commit After a Broad Change
+
+Prompt:
+
+> Change how every sink classifies its URI and register the new collectors at startup. Classifier unit tests and a repository lint target exist. Commit the work when it is complete.
+
+Expected:
+
+- Run the focused unit tests and the lint target once before committing, because the change is broad and its interactions are hard to confirm by reading.
+- Do not run integration or failpoint targets locally.
+- Report what ran and what remains unverified.
 
 ## Runtime Verification Is Necessary
 
