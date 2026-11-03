@@ -16,6 +16,7 @@ Apply these standards to the first draft and subsequent updates:
 - Name components, fields, and states exactly as the code, configuration, or API names them, or describe them in plain words. Do not coin labels, metaphors, or abbreviations that the sources do not use.
 - Keep each fact, decision, assumption, unknown, and recommendation in one canonical location.
 - Separate what was observed from what was inferred. A consequence derived by reading code is presented as inference, never as confirmed behavior.
+- Delete every sentence that does not change what the reader knows or does: no restating the heading, no self-evident qualification, no commentary about the document itself, and no explanation of why omitted material is omitted.
 - When the user removes a topic from scope, delete its sections, links, comparisons, caveats, deferred-work notes, and exclusion statements. Do not preserve the removed topic by explaining that it is unnecessary, unverified, fixed, deferred, or outside the current scope. Retain only facts that still serve another explicitly requested part of the document.
 - When a finding, issue, or decision is resolved, delete its section instead of labeling it implemented or fixed. Remove its rows from status tables and priority lists, its remaining-work entries, and its fix and verification records, keeping no work log.
 - Follow Markdown conventions. Use correct syntax for headings, lists, code blocks, and links.
