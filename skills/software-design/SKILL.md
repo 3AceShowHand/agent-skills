@@ -11,6 +11,7 @@ description: Use when designing or materially changing module boundaries, public
 - Understand the existing system before proposing a new structure. Use `codebase-navigation` when the required call paths, ownership, or impact are not already clear.
 - Prefer the smallest coherent design that satisfies current requirements and reduces knowledge required by callers.
 - Make ownership, interfaces, invariants, state transitions, failure handling, and verification explicit where they affect the decision.
+- Make invalid values unrepresentable in the type: choose types, constructors, and ownership so a wrong value cannot be constructed. Validate untrusted input once at the system boundary; internal functions accept already-valid values instead of re-checking their parameters.
 - Return an implementable design or evidence-backed design findings to the calling workflow; do not take over feature delivery or review reporting.
 
 ## When Design Depth Is Material

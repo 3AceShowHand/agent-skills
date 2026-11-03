@@ -25,6 +25,8 @@ Quality is graded, not gating. Grade each area as `good`, `fair`, or `poor`, wit
 - A type has one reason to change; its state and the operations that maintain it live together.
 - Only what callers need is exported; helpers stay internal.
 - No catch-all manager that owns unrelated state, and no abstraction layer with a single implementation and no near-term second one.
+- Parameter re-validation inside an internal function is a defect: point to the type, constructor, or boundary that should have prevented the invalid value. Validation belongs at the system boundary, once.
+- Tests must be able to fail on a wrong input or a broken state assertion. A test that passes for that defect is a coverage gap, not evidence.
 
 ## Multi-component interaction
 
