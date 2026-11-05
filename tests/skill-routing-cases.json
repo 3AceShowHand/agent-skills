@@ -183,6 +183,14 @@
       "must_not_trigger": ["feature-development", "diagnose-and-fix-bugs", "observability-readiness"]
     },
     {
+      "id": "refactor-readability-simplification",
+      "prompt": "This code is correct but hard to follow. Simplify it for readability without changing behavior or compressing function and control-flow bodies onto one line.",
+      "expected_primary": "refactor",
+      "expected_supporting": [],
+      "must_not_trigger": ["feature-development", "diagnose-and-fix-bugs", "code-review"],
+      "expected_behavior": "Treat understanding cost, not line count, as the goal; remove unnecessary nesting, indirection, state, duplication, abstraction, and narrative comments while preserving behavior and project conventions."
+    },
+    {
       "id": "compat-application-upgrade",
       "prompt": "Ensure users can upgrade from the previous release without existing workloads failing.",
       "expected_primary": "compatibility-check",

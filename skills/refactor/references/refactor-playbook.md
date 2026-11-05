@@ -8,6 +8,15 @@
 - Identify generated files and code ownership boundaries.
 - Decide whether the change can be split into mechanical and semantic commits or steps.
 
+## Readability Simplification
+
+- Optimize for lower understanding cost, not fewer lines.
+- Remove unnecessary nesting, indirection, state, duplication, abstraction, and comments that restate the code.
+- Preserve behavior and repository conventions.
+- Do not compress a function body or a control-flow block onto one line. Keep idiomatic clause headers such as `if err := f(); err != nil` with a multi-line body.
+- Reject a shorter version when it hides control flow, ownership, or intermediate meaning.
+- Verify behavior is unchanged and compare the resulting structure, not line count alone.
+
 ## Safe Step Patterns
 
 - Add new helper or interface without switching callers.
