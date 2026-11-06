@@ -21,7 +21,7 @@ Apply these standards to the first draft and subsequent updates:
 - When a finding, issue, or decision is resolved, delete its section instead of labeling it implemented or fixed. Remove its rows from status tables and priority lists, its remaining-work entries, and its fix and verification records, keeping no work log.
 - Follow Markdown conventions. Use correct syntax for headings, lists, code blocks, and links.
 - Present multiple similar, same-level elements as a list instead of joining them inline with commas, slashes, or conjunctions. This includes metadata fields: keep a single value inline, but when fields such as `Related documents`, `Related links`, `Sources`, or `Constraints` contain multiple values, put the label on its own line and list each value as a separate bullet.
-- Across every document type, use a table only when fields are stable, cells are short, and horizontal comparison is materially faster. Align table columns in the Markdown source. Use prose or lists when cells would contain causal explanations, multiple sentences, recommendations, tradeoffs, or steps.
+- Across every document type, reserve tables for compact comparisons of short values. Stable fields or a name-to-location mapping alone do not justify a table: use lists for inventories of long identifiers and source links, and prose or lists for explanations, recommendations, tradeoffs, or steps. Judge the length of the actual cell content, including code names and paths. Do not force long entries into cells with line breaks. Align columns in tables that remain.
 - Meet the professional standards of the document type: current-state analysis, requirements, design, or task list.
 - Use `clarity` for sentence-level expression, narrative flow, concision, and tone.
 
@@ -52,7 +52,7 @@ Score each dimension from 0 to 10, using whole points, for a total of 100:
 6. **Clarity:** Sentences are direct, paragraphs stay focused, and the reader can understand the document without reconstructing its meaning.
 7. **Concision:** The document contains no repeated conclusion, duplicated background, empty transition, or detail that does not serve its purpose.
 8. **Terminology:** Components, fields, and states use the names that exist in the code, configuration, or API, or plain words. A coined label is a defect; a necessary specialized term is explained once and keeps one meaning.
-9. **Format:** Markdown, headings, lists, links, spacing, and tables follow the user's requirements and repository conventions. Tables contain only short, stable fields suited to horizontal comparison.
+9. **Format:** Markdown, headings, lists, links, spacing, and tables follow the user's requirements and repository conventions. Tables compare short values; long identifiers, source-link inventories, and explanations use lists or prose.
 10. **Document-type fitness:** The document works as the requested analysis, requirements, design, or task list and includes the corresponding decisions, acceptance criteria, verification, or completion conditions when applicable.
 
 Assign scores from observed defects, not intended quality:
@@ -75,7 +75,7 @@ A total score cannot override a delivery blocker. Fix every blocker before deliv
 - a coined label where the code, configuration, or API has a name or plain words would do;
 - an undefined or inconsistently used core term;
 - material or repeated redundancy;
-- a table containing long-form prose, causal analysis, tradeoffs, recommendations, or procedural steps;
+- a table containing long identifiers or source-link inventories, long-form prose, causal analysis, tradeoffs, recommendations, or procedural steps;
 - a required-format violation, broken required reference, or document type that does not match its content.
 
 Deliver only when no blocker remains, every dimension scores at least 8, and the total score is at least 90. Otherwise, revise and rescore. If missing information makes the gate unattainable, report the specific blocker and request only the necessary input instead of returning the document as complete. Evaluate an explicitly requested draft against its declared scope and maturity; draft status does not waive the gate.

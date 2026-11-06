@@ -46,6 +46,19 @@ Expected:
 - A table remains acceptable when the fields are stable, cells are short, and horizontal comparison improves readability.
 - The quality gate does not prohibit tables solely because the document contains one.
 
+## Long Identifiers and Source Locations Use a List
+
+Prompt:
+
+> Update a local metrics audit containing five long metric identifiers, each paired with a linked source path and line number. The current document puts them in a two-column table. Keep the full names and source links, and explain each metric's purpose.
+
+Expected:
+
+- The inventory uses separate list items with the complete identifiers and source links preserved.
+- Purpose and reasoning stay in the corresponding item or paragraph, without table cells or forced line breaks inside cells.
+- A stable identifier-to-location mapping does not override the requirement for compact table content.
+- Short numeric comparisons elsewhere may remain in a table; the agent does not impose a blanket table ban.
+
 ## Multiple Similar Elements Use a List
 
 Prompt:
